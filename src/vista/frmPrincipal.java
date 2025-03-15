@@ -88,6 +88,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnVehiculos.setBackground(new java.awt.Color(102, 153, 255));
         btnVehiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RegistroDeAlquileres.png"))); // NOI18N
         btnVehiculos.setText("Vehiculos");
+        btnVehiculos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVehiculosActionPerformed(evt);
+            }
+        });
 
         btnAlquiler.setBackground(new java.awt.Color(102, 153, 255));
         btnAlquiler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AsignaciónDeVehículos.png"))); // NOI18N
@@ -116,6 +121,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnClientes.setBackground(new java.awt.Color(102, 153, 255));
         btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Clientes.png"))); // NOI18N
         btnClientes.setText("Clientes");
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
 
         btnDevoluciones.setBackground(new java.awt.Color(102, 153, 255));
         btnDevoluciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Devoluciones.png"))); // NOI18N
@@ -346,7 +356,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         getContentPane().add(jTabbedPane1);
         jTabbedPane1.setBounds(250, 190, 840, 450);
 
-        setSize(new java.awt.Dimension(1106, 653));
+        setSize(new java.awt.Dimension(1116, 698));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -376,6 +386,19 @@ public class frmPrincipal extends javax.swing.JFrame {
                                           "Cancelado", JOptionPane.INFORMATION_MESSAGE);*/
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        frmRegistrarClientes VerCliente = new frmRegistrarClientes();
+        
+        VerCliente.setVisible(true);
+    }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void btnVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVehiculosActionPerformed
+       
+        frmRegistroVehiculos VerRegistroVehi = new frmRegistroVehiculos();
+        
+        VerRegistroVehi.setVisible(true);
+    }//GEN-LAST:event_btnVehiculosActionPerformed
 
     /**
      * @param args the command line arguments
