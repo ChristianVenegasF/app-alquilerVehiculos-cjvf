@@ -3,10 +3,10 @@ package vista;
 import javax.swing.JOptionPane;
 
 
-public class Login extends javax.swing.JFrame {
+public class frmLogin extends javax.swing.JFrame {
 
     
-    public Login() {
+    public frmLogin() {
         initComponents();
     }
 
@@ -25,7 +25,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Alquiler Autos");
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -53,7 +53,7 @@ public class Login extends javax.swing.JFrame {
 
         txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanel1.add(txtUsuario);
-        txtUsuario.setBounds(289, 101, 125, 28);
+        txtUsuario.setBounds(290, 100, 125, 28);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 51, 255));
@@ -68,7 +68,6 @@ public class Login extends javax.swing.JFrame {
         txtContrasena.setBounds(289, 173, 125, 28);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(6, 6, 535, 301);
 
         setSize(new java.awt.Dimension(563, 321));
         setLocationRelativeTo(null);
@@ -85,7 +84,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Acceso Confirmado");
             
             // Crear una instancia de la nueva interfaz
-            Principal nuevaVentana = new Principal();
+            frmPrincipal nuevaVentana = new frmPrincipal();
 
             // Mostrar la nueva ventana
             nuevaVentana.setVisible(true);
@@ -114,20 +113,21 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new frmLogin().setVisible(true);
             }
         });
     }

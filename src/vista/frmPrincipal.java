@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author IDAT
  */
-public class Principal extends javax.swing.JFrame {
+public class frmPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public frmPrincipal() {
         initComponents();
     }
 
@@ -29,14 +29,14 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnVehiculos = new javax.swing.JButton();
+        btnAlquiler = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
+        btnDevoluciones = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -85,16 +85,16 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 255));
 
-        jButton1.setBackground(new java.awt.Color(102, 153, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RegistroDeAlquileres.png"))); // NOI18N
-        jButton1.setText("Vehiculos");
+        btnVehiculos.setBackground(new java.awt.Color(102, 153, 255));
+        btnVehiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RegistroDeAlquileres.png"))); // NOI18N
+        btnVehiculos.setText("Vehiculos");
 
-        jButton2.setBackground(new java.awt.Color(102, 153, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AsignaciónDeVehículos.png"))); // NOI18N
-        jButton2.setText("Alquileres");
+        btnAlquiler.setBackground(new java.awt.Color(102, 153, 255));
+        btnAlquiler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AsignaciónDeVehículos.png"))); // NOI18N
+        btnAlquiler.setText("Alquileres");
 
         jButton3.setBackground(new java.awt.Color(102, 153, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CalculoDeTarifas.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Calculadora.png"))); // NOI18N
         jButton3.setText("Calculadora");
 
         jButton4.setBackground(new java.awt.Color(102, 153, 255));
@@ -113,29 +113,29 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton10.setBackground(new java.awt.Color(102, 153, 255));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Clientes.png"))); // NOI18N
-        jButton10.setText("Clientes");
+        btnClientes.setBackground(new java.awt.Color(102, 153, 255));
+        btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Clientes.png"))); // NOI18N
+        btnClientes.setText("Clientes");
 
-        jButton11.setBackground(new java.awt.Color(102, 153, 255));
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Devoluciones.png"))); // NOI18N
-        jButton11.setText("Devoluciones");
+        btnDevoluciones.setBackground(new java.awt.Color(102, 153, 255));
+        btnDevoluciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Devoluciones.png"))); // NOI18N
+        btnDevoluciones.setText("Devoluciones");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(11, Short.MAX_VALUE))
-            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnVehiculos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnDevoluciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,13 +143,13 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnVehiculos)
                 .addGap(29, 29, 29)
-                .addComponent(jButton10)
+                .addComponent(btnClientes)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnAlquiler)
                 .addGap(28, 28, 28)
-                .addComponent(jButton11)
+                .addComponent(btnDevoluciones)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(28, 28, 28)
@@ -363,7 +363,7 @@ public class Principal extends javax.swing.JFrame {
             // Crear y mostrar otra ventana (puede ser un JOptionPane u otra ventana)
             JOptionPane.showMessageDialog(null, "¡Se abrió otra ventana!", 
                                           "Nueva Ventana", JOptionPane.INFORMATION_MESSAGE);
-            Login Regresar = new Login();
+            frmLogin Regresar = new frmLogin();
 
             // Mostrar la nueva ventana
             Regresar.setVisible(true);
@@ -394,29 +394,30 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new frmPrincipal().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAlquiler;
+    private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnDevoluciones;
+    private javax.swing.JButton btnVehiculos;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
