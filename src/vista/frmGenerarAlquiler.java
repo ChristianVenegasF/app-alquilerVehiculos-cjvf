@@ -28,6 +28,7 @@ public class frmGenerarAlquiler extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -36,6 +37,34 @@ public class frmGenerarAlquiler extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField11 = new javax.swing.JTextField();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -49,8 +78,18 @@ public class frmGenerarAlquiler extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(280, 10, 230, 70);
 
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/X.png"))); // NOI18N
+        btnCerrar.setToolTipText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCerrar);
+        btnCerrar.setBounds(860, 0, 30, 30);
+
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 740, 90);
+        jPanel1.setBounds(0, 0, 890, 90);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setLayout(null);
@@ -65,23 +104,22 @@ public class frmGenerarAlquiler extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(jTextField1)
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel3);
@@ -93,23 +131,123 @@ public class frmGenerarAlquiler extends javax.swing.JFrame {
         jLabel3.setText("Codigo:");
         jPanel4.add(jLabel3);
         jLabel3.setBounds(10, 10, 70, 20);
-
-        jTextField2.setText("jTextField2");
         jPanel4.add(jTextField2);
-        jTextField2.setBounds(80, 10, 71, 22);
+        jTextField2.setBounds(80, 10, 64, 22);
 
         jLabel4.setText("Direccion:");
         jPanel4.add(jLabel4);
         jLabel4.setBounds(10, 60, 60, 30);
 
+        jLabel5.setText("Cliente:");
+        jPanel4.add(jLabel5);
+        jLabel5.setBounds(200, 10, 60, 30);
+        jPanel4.add(jTextField3);
+        jTextField3.setBounds(270, 10, 230, 22);
+        jPanel4.add(jTextField4);
+        jTextField4.setBounds(80, 60, 240, 22);
+
+        jLabel6.setText("Telefono:");
+        jPanel4.add(jLabel6);
+        jLabel6.setBounds(330, 60, 70, 20);
+        jPanel4.add(jTextField5);
+        jTextField5.setBounds(410, 60, 100, 22);
+
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(130, 10, 600, 100);
+        jPanel4.setBounds(130, 10, 750, 100);
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.setLayout(null);
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel6.setLayout(null);
+
+        jLabel7.setText("Codigo:");
+        jPanel6.add(jLabel7);
+        jLabel7.setBounds(10, 10, 60, 30);
+
+        jLabel8.setText("Placa:");
+        jPanel6.add(jLabel8);
+        jLabel8.setBounds(10, 50, 50, 20);
+
+        jLabel9.setText("Modelo:");
+        jPanel6.add(jLabel9);
+        jLabel9.setBounds(10, 80, 50, 20);
+        jPanel6.add(jTextField6);
+        jTextField6.setBounds(60, 10, 64, 22);
+        jPanel6.add(jTextField7);
+        jTextField7.setBounds(60, 50, 140, 22);
+        jPanel6.add(jTextField8);
+        jTextField8.setBounds(70, 80, 270, 22);
+
+        jLabel10.setText("Marca:");
+        jPanel6.add(jLabel10);
+        jLabel10.setBounds(130, 10, 60, 20);
+
+        jLabel11.setText("Precio:");
+        jPanel6.add(jLabel11);
+        jLabel11.setBounds(220, 50, 50, 20);
+        jPanel6.add(jTextField9);
+        jTextField9.setBounds(300, 50, 64, 22);
+        jPanel6.add(jTextField10);
+        jTextField10.setBounds(180, 10, 110, 22);
+
+        jPanel5.add(jPanel6);
+        jPanel6.setBounds(20, 20, 400, 110);
+
+        jLabel12.setText("Fecha Inicio:");
+        jPanel5.add(jLabel12);
+        jLabel12.setBounds(440, 40, 80, 20);
+        jPanel5.add(jDateChooser1);
+        jDateChooser1.setBounds(430, 70, 130, 30);
+
+        jLabel13.setText("Cantidad de Dias:");
+        jPanel5.add(jLabel13);
+        jLabel13.setBounds(580, 30, 110, 30);
+        jPanel5.add(jTextField11);
+        jTextField11.setBounds(590, 70, 100, 30);
+        jPanel5.add(jDateChooser2);
+        jDateChooser2.setBounds(710, 70, 140, 30);
+
+        jLabel14.setText("Fecha Devolucion:");
+        jPanel5.add(jLabel14);
+        jLabel14.setBounds(720, 30, 120, 30);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "COD", "PLACA", "MODELO", "MARCA", "FEC. INICIO", "FEC. FIN", "DIAS", "PRECIO", "TOTAL"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel5.add(jScrollPane1);
+        jScrollPane1.setBounds(20, 150, 830, 210);
+
+        jButton1.setText("Realizar Alquiler");
+        jPanel5.add(jButton1);
+        jButton1.setBounds(350, 370, 120, 30);
+
+        jLabel15.setText("Total:");
+        jPanel5.add(jLabel15);
+        jLabel15.setBounds(680, 370, 90, 20);
+        jPanel5.add(jTextField12);
+        jTextField12.setBounds(720, 370, 130, 20);
+
+        jPanel2.add(jPanel5);
+        jPanel5.setBounds(10, 120, 870, 410);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 90, 740, 460);
+        jPanel2.setBounds(0, 90, 890, 540);
 
-        pack();
+        setSize(new java.awt.Dimension(914, 678));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,15 +285,44 @@ public class frmGenerarAlquiler extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
