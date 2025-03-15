@@ -97,6 +97,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnAlquiler.setBackground(new java.awt.Color(102, 153, 255));
         btnAlquiler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AsignaciónDeVehículos.png"))); // NOI18N
         btnAlquiler.setText("Alquileres");
+        btnAlquiler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlquilerActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(102, 153, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Calculadora.png"))); // NOI18N
@@ -399,6 +404,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         VerRegistroVehi.setVisible(true);
     }//GEN-LAST:event_btnVehiculosActionPerformed
+
+    private void btnAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlquilerActionPerformed
+        
+        frmGenerarAlquiler VerAlquilerVe = new frmGenerarAlquiler();
+        
+        VerAlquilerVe.setVisible(true);
+    }//GEN-LAST:event_btnAlquilerActionPerformed
 
     /**
      * @param args the command line arguments
