@@ -28,6 +28,7 @@ public class frmRegistrarClientes extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -59,53 +60,63 @@ public class frmRegistrarClientes extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(200, 30, 340, 40);
 
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/X.png"))); // NOI18N
+        btnCerrar.setToolTipText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCerrar);
+        btnCerrar.setBounds(690, 0, 30, 30);
+
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 650, 90);
+        jPanel1.setBounds(0, 0, 720, 90);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setLayout(null);
 
         jLabel2.setText("Codigo:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(20, 60, 42, 16);
+        jLabel2.setBounds(20, 60, 60, 20);
 
         jLabel3.setText("Nombres:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(20, 90, 52, 16);
+        jLabel3.setBounds(20, 90, 70, 30);
 
         jLabel4.setText("Telefono:");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(20, 130, 49, 16);
+        jLabel4.setBounds(20, 130, 70, 30);
 
         jLabel5.setText("Direccion:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(20, 170, 53, 16);
+        jLabel5.setBounds(20, 170, 70, 30);
 
         jLabel6.setText("Email:");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(20, 220, 32, 16);
+        jLabel6.setBounds(20, 220, 70, 30);
 
         jLabel7.setText("Ciudad:");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(20, 260, 41, 16);
+        jLabel7.setBounds(20, 260, 60, 30);
 
         jLabel8.setText("Dni:");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(300, 60, 40, 20);
+        jLabel8.setBounds(320, 60, 40, 20);
         jPanel2.add(txtCodigo);
-        txtCodigo.setBounds(80, 60, 200, 22);
+        txtCodigo.setBounds(100, 60, 200, 22);
         jPanel2.add(txtNombres);
-        txtNombres.setBounds(90, 90, 390, 22);
+        txtNombres.setBounds(110, 90, 390, 22);
         jPanel2.add(txtTelefono);
-        txtTelefono.setBounds(90, 130, 160, 22);
+        txtTelefono.setBounds(110, 130, 160, 22);
         jPanel2.add(txtDireccion);
-        txtDireccion.setBounds(90, 170, 390, 22);
+        txtDireccion.setBounds(110, 170, 390, 22);
         jPanel2.add(txtEmail);
-        txtEmail.setBounds(90, 220, 390, 22);
+        txtEmail.setBounds(110, 220, 390, 22);
         jPanel2.add(txtCiudad);
-        txtCiudad.setBounds(81, 260, 400, 22);
+        txtCiudad.setBounds(110, 260, 400, 22);
         jPanel2.add(txtDni);
-        txtDni.setBounds(340, 60, 160, 22);
+        txtDni.setBounds(360, 60, 160, 22);
 
         btnClientes.setBackground(new java.awt.Color(153, 255, 255));
         btnClientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -113,7 +124,7 @@ public class frmRegistrarClientes extends javax.swing.JFrame {
         btnClientes.setText("Clientes");
         btnClientes.setToolTipText("Clientes");
         jPanel2.add(btnClientes);
-        btnClientes.setBounds(510, 80, 130, 120);
+        btnClientes.setBounds(550, 120, 130, 120);
 
         btnAgregarNuevoCliente.setBackground(new java.awt.Color(102, 204, 255));
         btnAgregarNuevoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
@@ -128,11 +139,15 @@ public class frmRegistrarClientes extends javax.swing.JFrame {
         btnGuardarCliente.setBounds(110, 0, 50, 40);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 90, 650, 320);
+        jPanel2.setBounds(0, 90, 720, 320);
 
-        setSize(new java.awt.Dimension(666, 423));
+        setSize(new java.awt.Dimension(734, 427));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,6 +186,7 @@ public class frmRegistrarClientes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarNuevoCliente;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnGuardarCliente;
     private javax.swing.JLabel jLabel1;
