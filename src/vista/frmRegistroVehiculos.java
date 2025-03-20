@@ -40,18 +40,18 @@ public class frmRegistroVehiculos extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtCodigoVehiculo = new javax.swing.JTextField();
+        cbxTipoVehiculo = new javax.swing.JComboBox<>();
+        cbxMarcaVehiculo = new javax.swing.JComboBox<>();
+        txtPlacaVehiculo = new javax.swing.JTextField();
+        txtAnioVehiculo = new javax.swing.JTextField();
+        txtColorVehiculo = new javax.swing.JTextField();
+        txtModeloVehiculo = new javax.swing.JTextField();
+        txtPrecioAlquilerVehiculo = new javax.swing.JTextField();
+        rbtActivoVehiculo = new javax.swing.JRadioButton();
+        rbtOcupadoVehiculo = new javax.swing.JRadioButton();
+        btnAgregarNuevoVehiculo = new javax.swing.JButton();
+        btnGuardarNuevoVehiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -133,46 +133,46 @@ public class frmRegistroVehiculos extends javax.swing.JFrame {
         jLabel10.setText("Estado:");
         jPanel2.add(jLabel10);
         jLabel10.setBounds(300, 210, 70, 30);
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(80, 60, 120, 22);
+        jPanel2.add(txtCodigoVehiculo);
+        txtCodigoVehiculo.setBounds(80, 60, 120, 22);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(70, 100, 180, 22);
+        cbxTipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(cbxTipoVehiculo);
+        cbxTipoVehiculo.setBounds(70, 100, 180, 22);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox2);
-        jComboBox2.setBounds(70, 140, 180, 22);
-        jPanel2.add(jTextField2);
-        jTextField2.setBounds(70, 180, 160, 22);
-        jPanel2.add(jTextField3);
-        jTextField3.setBounds(70, 210, 130, 22);
-        jPanel2.add(jTextField4);
-        jTextField4.setBounds(70, 250, 120, 22);
-        jPanel2.add(jTextField5);
-        jTextField5.setBounds(370, 130, 120, 22);
-        jPanel2.add(jTextField6);
-        jTextField6.setBounds(390, 160, 64, 22);
+        cbxMarcaVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(cbxMarcaVehiculo);
+        cbxMarcaVehiculo.setBounds(70, 140, 180, 22);
+        jPanel2.add(txtPlacaVehiculo);
+        txtPlacaVehiculo.setBounds(70, 180, 160, 22);
+        jPanel2.add(txtAnioVehiculo);
+        txtAnioVehiculo.setBounds(70, 210, 130, 22);
+        jPanel2.add(txtColorVehiculo);
+        txtColorVehiculo.setBounds(70, 250, 120, 22);
+        jPanel2.add(txtModeloVehiculo);
+        txtModeloVehiculo.setBounds(370, 130, 120, 22);
+        jPanel2.add(txtPrecioAlquilerVehiculo);
+        txtPrecioAlquilerVehiculo.setBounds(390, 160, 64, 22);
 
-        jRadioButton1.setText("Activo");
-        jPanel2.add(jRadioButton1);
-        jRadioButton1.setBounds(350, 220, 57, 21);
+        rbtActivoVehiculo.setText("Activo");
+        jPanel2.add(rbtActivoVehiculo);
+        rbtActivoVehiculo.setBounds(350, 220, 57, 21);
 
-        jRadioButton2.setText("Ocupado");
-        jPanel2.add(jRadioButton2);
-        jRadioButton2.setBounds(440, 220, 98, 21);
+        rbtOcupadoVehiculo.setText("Ocupado");
+        jPanel2.add(rbtOcupadoVehiculo);
+        rbtOcupadoVehiculo.setBounds(440, 220, 98, 21);
 
-        jButton1.setBackground(new java.awt.Color(51, 153, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
-        jButton1.setToolTipText("Agregar Nuevo Vehiculo");
-        jPanel2.add(jButton1);
-        jButton1.setBounds(40, 10, 60, 40);
+        btnAgregarNuevoVehiculo.setBackground(new java.awt.Color(51, 153, 255));
+        btnAgregarNuevoVehiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
+        btnAgregarNuevoVehiculo.setToolTipText("Agregar Nuevo Vehiculo");
+        jPanel2.add(btnAgregarNuevoVehiculo);
+        btnAgregarNuevoVehiculo.setBounds(40, 10, 60, 40);
 
-        jButton2.setBackground(new java.awt.Color(102, 204, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
-        jButton2.setToolTipText("Guardar Nuevo Vehiculo");
-        jPanel2.add(jButton2);
-        jButton2.setBounds(120, 10, 60, 40);
+        btnGuardarNuevoVehiculo.setBackground(new java.awt.Color(102, 204, 255));
+        btnGuardarNuevoVehiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
+        btnGuardarNuevoVehiculo.setToolTipText("Guardar Nuevo Vehiculo");
+        jPanel2.add(btnGuardarNuevoVehiculo);
+        btnGuardarNuevoVehiculo.setBounds(120, 10, 60, 40);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 110, 720, 380);
@@ -221,12 +221,12 @@ public class frmRegistroVehiculos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarNuevoVehiculo;
     private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton btnGuardarNuevoVehiculo;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> cbxMarcaVehiculo;
+    private javax.swing.JComboBox<String> cbxTipoVehiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -239,13 +239,13 @@ public class frmRegistroVehiculos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JRadioButton rbtActivoVehiculo;
+    private javax.swing.JRadioButton rbtOcupadoVehiculo;
+    private javax.swing.JTextField txtAnioVehiculo;
+    private javax.swing.JTextField txtCodigoVehiculo;
+    private javax.swing.JTextField txtColorVehiculo;
+    private javax.swing.JTextField txtModeloVehiculo;
+    private javax.swing.JTextField txtPlacaVehiculo;
+    private javax.swing.JTextField txtPrecioAlquilerVehiculo;
     // End of variables declaration//GEN-END:variables
 }
