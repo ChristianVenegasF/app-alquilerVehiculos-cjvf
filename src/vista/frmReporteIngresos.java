@@ -26,18 +26,63 @@ public class frmReporteIngresos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        dcFechaDesde = new com.toedter.calendar.JDateChooser();
+        dcFechaHasta = new com.toedter.calendar.JDateChooser();
+        btnGenerarReporte = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaIngresos = new javax.swing.JTable();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setLayout(null);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Auto.png"))); // NOI18N
+        jLabel1.setText("REPORTE DE INGRESOS ");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(110, 20, 180, 40);
+
+        jLabel2.setText("Fecha Desde:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(20, 70, 90, 30);
+
+        jLabel3.setText("Fecha Hasta:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(20, 110, 90, 30);
+        jPanel1.add(dcFechaDesde);
+        dcFechaDesde.setBounds(110, 70, 85, 22);
+        jPanel1.add(dcFechaHasta);
+        dcFechaHasta.setBounds(110, 110, 85, 22);
+
+        btnGenerarReporte.setText("GENERAR REPORTE");
+        jPanel1.add(btnGenerarReporte);
+        btnGenerarReporte.setBounds(20, 160, 150, 30);
+
+        jLabel4.setText("Tabla de ingresos:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(20, 210, 110, 30);
+
+        tablaIngresos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cliente", "Vehiculo", "Fecha Inicio", "Ingreso"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaIngresos);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 250, 375, 220);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(6, 6, 480, 510);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +123,15 @@ public class frmReporteIngresos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGenerarReporte;
+    private com.toedter.calendar.JDateChooser dcFechaDesde;
+    private com.toedter.calendar.JDateChooser dcFechaHasta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaIngresos;
     // End of variables declaration//GEN-END:variables
 }

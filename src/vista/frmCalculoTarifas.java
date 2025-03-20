@@ -26,18 +26,68 @@ public class frmCalculoTarifas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        cbClientes = new javax.swing.JComboBox<>();
+        txtDiasUso = new javax.swing.JTextField();
+        txtCostoTotal = new javax.swing.JTextField();
+        btnCalcular = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        cbVehiculos = new javax.swing.JComboBox<>();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setLayout(null);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Auto.png"))); // NOI18N
+        jLabel1.setText("CÁLCULO DE TARIFAS ");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(100, 20, 180, 30);
+
+        jLabel2.setText(" Cliente:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(20, 70, 60, 30);
+
+        jLabel3.setText("Vehículo:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(20, 110, 70, 30);
+
+        jLabel4.setText("Días de Uso:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(20, 160, 80, 30);
+
+        jLabel5.setText("Costo Total:");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(20, 200, 80, 30);
+
+        cbClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(cbClientes);
+        cbClientes.setBounds(100, 80, 72, 22);
+        jPanel1.add(txtDiasUso);
+        txtDiasUso.setBounds(100, 170, 64, 22);
+        jPanel1.add(txtCostoTotal);
+        txtCostoTotal.setBounds(100, 210, 64, 22);
+
+        btnCalcular.setText("CALCULAR TARIFA");
+        jPanel1.add(btnCalcular);
+        btnCalcular.setBounds(30, 260, 140, 30);
+
+        btnCancelar.setText("CANCELAR");
+        jPanel1.add(btnCancelar);
+        btnCancelar.setBounds(180, 260, 100, 30);
+
+        cbVehiculos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(cbVehiculos);
+        cbVehiculos.setBounds(100, 110, 72, 22);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(5, 8, 370, 340);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +129,17 @@ public class frmCalculoTarifas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCalcular;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JComboBox<String> cbClientes;
+    private javax.swing.JComboBox<String> cbVehiculos;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtCostoTotal;
+    private javax.swing.JTextField txtDiasUso;
     // End of variables declaration//GEN-END:variables
 }
