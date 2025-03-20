@@ -28,126 +28,77 @@ public class frmRegistrarClientes extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnCerrar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
-        txtNombres = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtDocumento = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
-        txtCiudad = new javax.swing.JTextField();
-        txtDni = new javax.swing.JTextField();
-        btnClientes = new javax.swing.JButton();
-        btnAgregarNuevoCliente = new javax.swing.JButton();
-        btnGuardarCliente = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("REGISTRO DE CLIENTES");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Auto.png"))); // NOI18N
+        jLabel1.setText("REGISTRO DE CLIENTES ");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(200, 30, 340, 40);
+        jLabel1.setBounds(120, 0, 280, 70);
 
-        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/X.png"))); // NOI18N
-        btnCerrar.setToolTipText("Cerrar");
-        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setText("Nombre:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(60, 80, 80, 30);
+
+        jLabel3.setText("Documento:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(60, 110, 80, 30);
+
+        jLabel4.setText("Teléfono:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(60, 140, 80, 30);
+
+        jLabel5.setText("Dirección:");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(60, 170, 80, 30);
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCerrar);
-        btnCerrar.setBounds(690, 0, 30, 30);
+        jPanel1.add(txtNombre);
+        txtNombre.setBounds(140, 90, 230, 30);
+        jPanel1.add(txtDocumento);
+        txtDocumento.setBounds(140, 120, 230, 30);
+        jPanel1.add(txtTelefono);
+        txtTelefono.setBounds(140, 150, 230, 30);
+        jPanel1.add(txtDireccion);
+        txtDireccion.setBounds(140, 180, 230, 30);
+
+        btnRegistrar.setText("REGISTRAR CLIENTE");
+        jPanel1.add(btnRegistrar);
+        btnRegistrar.setBounds(60, 240, 150, 30);
+
+        btnCancelar.setText("CANCELAR");
+        jPanel1.add(btnCancelar);
+        btnCancelar.setBounds(240, 240, 90, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 720, 90);
+        jPanel1.setBounds(0, 0, 480, 360);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.setLayout(null);
-
-        jLabel2.setText("Codigo:");
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(20, 60, 60, 20);
-
-        jLabel3.setText("Nombres:");
-        jPanel2.add(jLabel3);
-        jLabel3.setBounds(20, 90, 70, 30);
-
-        jLabel4.setText("Telefono:");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(20, 130, 70, 30);
-
-        jLabel5.setText("Direccion:");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(20, 170, 70, 30);
-
-        jLabel6.setText("Email:");
-        jPanel2.add(jLabel6);
-        jLabel6.setBounds(20, 220, 70, 30);
-
-        jLabel7.setText("Ciudad:");
-        jPanel2.add(jLabel7);
-        jLabel7.setBounds(20, 260, 60, 30);
-
-        jLabel8.setText("Dni:");
-        jPanel2.add(jLabel8);
-        jLabel8.setBounds(320, 60, 40, 20);
-        jPanel2.add(txtCodigo);
-        txtCodigo.setBounds(100, 60, 200, 22);
-        jPanel2.add(txtNombres);
-        txtNombres.setBounds(110, 90, 390, 22);
-        jPanel2.add(txtTelefono);
-        txtTelefono.setBounds(110, 130, 160, 22);
-        jPanel2.add(txtDireccion);
-        txtDireccion.setBounds(110, 170, 390, 22);
-        jPanel2.add(txtEmail);
-        txtEmail.setBounds(110, 220, 390, 22);
-        jPanel2.add(txtCiudad);
-        txtCiudad.setBounds(110, 260, 400, 22);
-        jPanel2.add(txtDni);
-        txtDni.setBounds(360, 60, 160, 22);
-
-        btnClientes.setBackground(new java.awt.Color(153, 255, 255));
-        btnClientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Lupa.png"))); // NOI18N
-        btnClientes.setText("Clientes");
-        btnClientes.setToolTipText("Clientes");
-        jPanel2.add(btnClientes);
-        btnClientes.setBounds(550, 120, 130, 120);
-
-        btnAgregarNuevoCliente.setBackground(new java.awt.Color(102, 204, 255));
-        btnAgregarNuevoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar.png"))); // NOI18N
-        btnAgregarNuevoCliente.setToolTipText("Nuevo Cliente");
-        jPanel2.add(btnAgregarNuevoCliente);
-        btnAgregarNuevoCliente.setBounds(50, 0, 50, 40);
-
-        btnGuardarCliente.setBackground(new java.awt.Color(102, 204, 255));
-        btnGuardarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Guardar.png"))); // NOI18N
-        btnGuardarCliente.setToolTipText("Guardar Cliente");
-        jPanel2.add(btnGuardarCliente);
-        btnGuardarCliente.setBounds(110, 0, 50, 40);
-
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 90, 720, 320);
-
-        setSize(new java.awt.Dimension(734, 427));
+        setSize(new java.awt.Dimension(530, 382));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        dispose();
-    }//GEN-LAST:event_btnCerrarActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,26 +136,17 @@ public class frmRegistrarClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarNuevoCliente;
-    private javax.swing.JButton btnCerrar;
-    private javax.swing.JButton btnClientes;
-    private javax.swing.JButton btnGuardarCliente;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtCiudad;
-    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtDni;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtNombres;
+    private javax.swing.JTextField txtDocumento;
+    private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
