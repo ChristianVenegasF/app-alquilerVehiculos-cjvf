@@ -69,7 +69,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1);
 
-        setSize(new java.awt.Dimension(563, 321));
+        setSize(new java.awt.Dimension(557, 321));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
