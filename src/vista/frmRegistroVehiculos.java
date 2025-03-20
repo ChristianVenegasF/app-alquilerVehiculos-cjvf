@@ -26,79 +26,64 @@ public class frmRegistroVehiculos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        btnRegistrar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        chkDisponible = new javax.swing.JCheckBox();
+        txtMarca = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
+        txtPlaca = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel1.setLayout(null);
+        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Auto.png"))); // NOI18N
-        jLabel1.setText("REGISTRO DE ALQUILERES");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(40, 10, 330, 60);
+        jLabel1.setText("REGISTRO DE VEHÍCULOS ");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(80, 0, 220, 50);
 
-        jLabel2.setText("Cliente:");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 80, 60, 30);
+        jLabel2.setText("Marca:");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(20, 70, 60, 40);
 
-        jLabel3.setText("Fecha Inicio:");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(20, 120, 80, 30);
+        jLabel3.setText("Modelo:");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(20, 130, 60, 30);
 
-        jLabel4.setText("Total:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(20, 170, 50, 20);
-        jPanel1.add(jDateChooser1);
-        jDateChooser1.setBounds(100, 120, 85, 22);
+        jLabel4.setText("Placa:");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(20, 180, 60, 30);
 
-        jLabel5.setText("Vehículo:");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(250, 80, 60, 30);
+        jLabel5.setText("Disponible:");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(20, 220, 80, 40);
 
-        jLabel6.setText("Fecha Fin:");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(250, 120, 70, 30);
+        btnRegistrar.setText("REGISTRAR VEHÍCULO");
+        jPanel2.add(btnRegistrar);
+        btnRegistrar.setBounds(20, 280, 150, 30);
 
-        jButton1.setText("REGISTRAR ALQUILER");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(20, 210, 160, 30);
+        btnCancelar.setText("CANCELAR");
+        jPanel2.add(btnCancelar);
+        btnCancelar.setBounds(180, 280, 110, 30);
+        jPanel2.add(chkDisponible);
+        chkDisponible.setBounds(100, 230, 100, 30);
+        jPanel2.add(txtMarca);
+        txtMarca.setBounds(90, 80, 120, 22);
+        jPanel2.add(txtModelo);
+        txtModelo.setBounds(90, 130, 120, 22);
+        jPanel2.add(txtPlaca);
+        txtPlaca.setBounds(90, 180, 120, 22);
 
-        jButton2.setText("CANCELAR");
-        jPanel1.add(jButton2);
-        jButton2.setBounds(220, 210, 100, 30);
-        jPanel1.add(jDateChooser2);
-        jDateChooser2.setBounds(310, 130, 85, 22);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(310, 80, 72, 22);
-
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(60, 170, 71, 22);
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox2);
-        jComboBox2.setBounds(80, 90, 72, 22);
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(6, 6, 400, 320);
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(10, 20, 380, 330);
 
         setSize(new java.awt.Dimension(433, 379));
         setLocationRelativeTo(null);
@@ -141,19 +126,17 @@ public class frmRegistroVehiculos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JCheckBox chkDisponible;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtModelo;
+    private javax.swing.JTextField txtPlaca;
     // End of variables declaration//GEN-END:variables
 }
