@@ -29,343 +29,99 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
-        btnVehiculos = new javax.swing.JButton();
-        btnAlquiler = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnRegistroAlquiler = new javax.swing.JButton();
+        btnRegistrarCliente = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        btnClientes = new javax.swing.JButton();
-        btnDevoluciones = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jDateChooser3 = new com.toedter.calendar.JDateChooser();
-        jDateChooser4 = new com.toedter.calendar.JDateChooser();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jDateChooser5 = new com.toedter.calendar.JDateChooser();
-        jDateChooser6 = new com.toedter.calendar.JDateChooser();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnAsignacion = new javax.swing.JButton();
+        btnCalculoTarifa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana Principal");
         getContentPane().setLayout(null);
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel5.setLayout(null);
 
-        btnVehiculos.setBackground(new java.awt.Color(102, 153, 255));
-        btnVehiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RegistroDeAlquileres.png"))); // NOI18N
-        btnVehiculos.setText("Vehiculos");
-        btnVehiculos.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistroAlquiler.setBackground(new java.awt.Color(102, 153, 255));
+        btnRegistroAlquiler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RegistrodeAlquileres (2).png"))); // NOI18N
+        btnRegistroAlquiler.setText("Registro de Alquileres");
+        btnRegistroAlquiler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVehiculosActionPerformed(evt);
+                btnRegistroAlquilerActionPerformed(evt);
             }
         });
+        jPanel5.add(btnRegistroAlquiler);
+        btnRegistroAlquiler.setBounds(0, 242, 310, 37);
 
-        btnAlquiler.setBackground(new java.awt.Color(102, 153, 255));
-        btnAlquiler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/AsignaciónDeVehículos.png"))); // NOI18N
-        btnAlquiler.setText("Alquileres");
-        btnAlquiler.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarCliente.setBackground(new java.awt.Color(102, 153, 255));
+        btnRegistrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Clientes.png"))); // NOI18N
+        btnRegistrarCliente.setText("Registrar Cliente");
+        btnRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlquilerActionPerformed(evt);
+                btnRegistrarClienteActionPerformed(evt);
             }
         });
+        jPanel5.add(btnRegistrarCliente);
+        btnRegistrarCliente.setBounds(0, 420, 310, 37);
 
-        jButton3.setBackground(new java.awt.Color(102, 153, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Calculadora.png"))); // NOI18N
-        jButton3.setText("Calculadora");
-
-        jButton4.setBackground(new java.awt.Color(102, 153, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Calendario.png"))); // NOI18N
-        jButton4.setText("Calendario");
+        btnReporte.setBackground(new java.awt.Color(102, 153, 255));
+        btnReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Reporte.png"))); // NOI18N
+        btnReporte.setText("Reporte ");
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnReporte);
+        btnReporte.setBounds(0, 480, 310, 37);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/images.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        jPanel5.add(jLabel2);
+        jLabel2.setBounds(46, 14, 258, 189);
 
-        jButton5.setBackground(new java.awt.Color(102, 153, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Salir.png"))); // NOI18N
-        jButton5.setText("Salir");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(102, 153, 255));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Salir.png"))); // NOI18N
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
+        jPanel5.add(btnSalir);
+        btnSalir.setBounds(0, 540, 310, 37);
 
-        btnClientes.setBackground(new java.awt.Color(102, 153, 255));
-        btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Clientes.png"))); // NOI18N
-        btnClientes.setText("Clientes");
-        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+        btnAsignacion.setBackground(new java.awt.Color(102, 153, 255));
+        btnAsignacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Asignación.png"))); // NOI18N
+        btnAsignacion.setText("Asignación");
+        btnAsignacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClientesActionPerformed(evt);
+                btnAsignacionActionPerformed(evt);
             }
         });
+        jPanel5.add(btnAsignacion);
+        btnAsignacion.setBounds(0, 310, 310, 37);
 
-        btnDevoluciones.setBackground(new java.awt.Color(102, 153, 255));
-        btnDevoluciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Devoluciones.png"))); // NOI18N
-        btnDevoluciones.setText("Devoluciones");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
-            .addComponent(btnVehiculos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnDevoluciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnVehiculos)
-                .addGap(29, 29, 29)
-                .addComponent(btnClientes)
-                .addGap(18, 18, 18)
-                .addComponent(btnAlquiler)
-                .addGap(28, 28, 28)
-                .addComponent(btnDevoluciones)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(28, 28, 28)
-                .addComponent(jButton4)
-                .addGap(32, 32, 32)
-                .addComponent(jButton5)
-                .addGap(14, 14, 14))
-        );
+        btnCalculoTarifa.setBackground(new java.awt.Color(102, 153, 255));
+        btnCalculoTarifa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CalculoDeTarifas.png"))); // NOI18N
+        btnCalculoTarifa.setText("Cálculo de Tarifas");
+        btnCalculoTarifa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalculoTarifaActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnCalculoTarifa);
+        btnCalculoTarifa.setBounds(0, 365, 310, 37);
 
         getContentPane().add(jPanel5);
-        jPanel5.setBounds(6, -4, 237, 650);
+        jPanel5.setBounds(6, -4, 310, 690);
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoPrincipal.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(220, 0, 860, 188);
-
-        jPanel1.setLayout(null);
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setText("Vehículo:");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(445, 35, 103, 16);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setText("Fecha de Inicio:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(21, 81, 117, 16);
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("Nombre de Cliente:");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(17, 30, 147, 27);
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(170, 32, 243, 22);
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(554, 32, 211, 22);
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setText("Hora de Inicio:");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(445, 81, 80, 16);
-
-        jButton6.setBackground(new java.awt.Color(51, 51, 255));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Guardar Alquiler");
-        jPanel1.add(jButton6);
-        jButton6.setBounds(21, 121, 121, 23);
-        jPanel1.add(jDateChooser1);
-        jDateChooser1.setBounds(170, 75, 174, 22);
-        jPanel1.add(jDateChooser2);
-        jDateChooser2.setBounds(554, 75, 234, 22);
-
-        jTabbedPane1.addTab("Registro de Alquileres", jPanel1);
-
-        jPanel3.setLayout(null);
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel9.setText("Fecha de Inicio:");
-        jPanel3.add(jLabel9);
-        jLabel9.setBounds(23, 38, 85, 16);
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel10.setText("Fecha de Fin:");
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(328, 38, 71, 16);
-
-        jButton8.setBackground(new java.awt.Color(51, 51, 255));
-        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Calcular Tarifa");
-        jPanel3.add(jButton8);
-        jButton8.setBounds(630, 55, 108, 23);
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel11.setText("Tarifa por Hora:");
-        jPanel3.add(jLabel11);
-        jLabel11.setBounds(23, 76, 87, 16);
-        jPanel3.add(jTextField4);
-        jTextField4.setBounds(122, 73, 164, 22);
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel12.setText("Tarifa Total:");
-        jPanel3.add(jLabel12);
-        jLabel12.setBounds(328, 76, 66, 16);
-        jPanel3.add(jTextField5);
-        jTextField5.setBounds(417, 73, 120, 22);
-        jPanel3.add(jDateChooser3);
-        jDateChooser3.setBounds(126, 38, 160, 22);
-        jPanel3.add(jDateChooser4);
-        jDateChooser4.setBounds(417, 38, 120, 22);
-
-        jTabbedPane1.addTab("Calculo de Tarifas", jPanel3);
-
-        jPanel4.setLayout(null);
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel13.setText("Fecha de Inicio:");
-        jPanel4.add(jLabel13);
-        jLabel13.setBounds(15, 36, 85, 16);
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel14.setText("Fecha de Fin:");
-        jPanel4.add(jLabel14);
-        jLabel14.setBounds(321, 36, 71, 16);
-
-        jButton9.setBackground(new java.awt.Color(51, 51, 255));
-        jButton9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("Generar Reporte");
-        jButton9.setFocusPainted(false);
-        jPanel4.add(jButton9);
-        jButton9.setBounds(570, 40, 142, 27);
-        jPanel4.add(jDateChooser5);
-        jDateChooser5.setBounds(118, 30, 146, 22);
-        jPanel4.add(jDateChooser6);
-        jDateChooser6.setBounds(410, 36, 128, 22);
-
-        jTabbedPane1.addTab("Reporte de Ingresos", jPanel4);
-
-        jLabel15.setText("Nombre:");
-
-        jLabel16.setText("Modelo:");
-
-        jLabel17.setText("Año:");
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        jTabbedPane1.addTab("Agregar Nuevo Vehiculo", jPanel6);
-
-        jPanel2.setLayout(null);
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setText("Selecciona Vehículo:");
-        jPanel2.add(jLabel7);
-        jLabel7.setBounds(37, 44, 113, 16);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro1", "Carro2", "Carro3", "Carro4" }));
-        jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(168, 41, 128, 22);
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setText("Cliente:");
-        jPanel2.add(jLabel8);
-        jLabel8.setBounds(333, 44, 54, 16);
-        jPanel2.add(jTextField3);
-        jTextField3.setBounds(393, 41, 198, 22);
-
-        jButton7.setBackground(new java.awt.Color(51, 51, 255));
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Asignar Vehículo");
-        jPanel2.add(jButton7);
-        jButton7.setBounds(651, 41, 122, 23);
-
-        jTabbedPane1.addTab("Asignación de Vehículos", jPanel2);
-
-        getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(250, 190, 840, 450);
-
-        setSize(new java.awt.Dimension(1116, 698));
+        setSize(new java.awt.Dimension(331, 608));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         
         // Mostrar el JOptionPane con las opciones Sí/No
@@ -390,27 +146,29 @@ public class frmPrincipal extends javax.swing.JFrame {
             /*JOptionPane.showMessageDialog(null, "No se abrirá otra ventana.", 
                                           "Cancelado", JOptionPane.INFORMATION_MESSAGE);*/
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        frmRegistrarClientes VerCliente = new frmRegistrarClientes();
+    private void btnAsignacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignacionActionPerformed
         
-        VerCliente.setVisible(true);
-    }//GEN-LAST:event_btnClientesActionPerformed
+    }//GEN-LAST:event_btnAsignacionActionPerformed
 
-    private void btnVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVehiculosActionPerformed
+    private void btnRegistroAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroAlquilerActionPerformed
        
-        frmRegistroVehiculos VerRegistroVehi = new frmRegistroVehiculos();
         
-        VerRegistroVehi.setVisible(true);
-    }//GEN-LAST:event_btnVehiculosActionPerformed
+    }//GEN-LAST:event_btnRegistroAlquilerActionPerformed
 
-    private void btnAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlquilerActionPerformed
+    private void btnRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClienteActionPerformed
         
-        frmGenerarAlquiler VerAlquilerVe = new frmGenerarAlquiler();
         
-        VerAlquilerVe.setVisible(true);
-    }//GEN-LAST:event_btnAlquilerActionPerformed
+    }//GEN-LAST:event_btnRegistrarClienteActionPerformed
+
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnReporteActionPerformed
+
+    private void btnCalculoTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculoTarifaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCalculoTarifaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -449,55 +207,13 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlquiler;
-    private javax.swing.JButton btnClientes;
-    private javax.swing.JButton btnDevoluciones;
-    private javax.swing.JButton btnVehiculos;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
-    private com.toedter.calendar.JDateChooser jDateChooser3;
-    private com.toedter.calendar.JDateChooser jDateChooser4;
-    private com.toedter.calendar.JDateChooser jDateChooser5;
-    private com.toedter.calendar.JDateChooser jDateChooser6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
+    private javax.swing.JButton btnAsignacion;
+    private javax.swing.JButton btnCalculoTarifa;
+    private javax.swing.JButton btnRegistrarCliente;
+    private javax.swing.JButton btnRegistroAlquiler;
+    private javax.swing.JButton btnReporte;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }
