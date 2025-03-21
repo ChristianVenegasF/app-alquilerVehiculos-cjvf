@@ -28,32 +28,41 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel5 = new javax.swing.JPanel();
-        btnRegistroAlquiler = new javax.swing.JButton();
-        btnRegistrarCliente = new javax.swing.JButton();
-        btnReporte = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnRegistrarVehiculo = new javax.swing.JButton();
+        btnRegistrarCliente = new javax.swing.JButton();
+        btnReporteIngresos = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        btnAsignacion = new javax.swing.JButton();
-        btnCalculoTarifa = new javax.swing.JButton();
+        btnAsignarVehiculo = new javax.swing.JButton();
+        btnCalcularTarifas = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnListaClientes = new javax.swing.JButton();
+        btnListaVehiculos = new javax.swing.JButton();
+        btnListaAlquileres = new javax.swing.JButton();
+        btnConfiguracion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana Principal");
         getContentPane().setLayout(null);
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/images.jpg"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(140, 10, 225, 225);
+
         jPanel5.setBackground(new java.awt.Color(51, 51, 255));
         jPanel5.setLayout(null);
 
-        btnRegistroAlquiler.setBackground(new java.awt.Color(102, 153, 255));
-        btnRegistroAlquiler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RegistrodeAlquileres (2).png"))); // NOI18N
-        btnRegistroAlquiler.setText("Registro de Alquileres");
-        btnRegistroAlquiler.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarVehiculo.setBackground(new java.awt.Color(102, 153, 255));
+        btnRegistrarVehiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RegistrodeAlquileres (2).png"))); // NOI18N
+        btnRegistrarVehiculo.setText("Registrar Vehículo");
+        btnRegistrarVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistroAlquilerActionPerformed(evt);
+                btnRegistrarVehiculoActionPerformed(evt);
             }
         });
-        jPanel5.add(btnRegistroAlquiler);
-        btnRegistroAlquiler.setBounds(0, 242, 310, 37);
+        jPanel5.add(btnRegistrarVehiculo);
+        btnRegistrarVehiculo.setBounds(0, 250, 240, 37);
 
         btnRegistrarCliente.setBackground(new java.awt.Color(102, 153, 255));
         btnRegistrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Clientes.png"))); // NOI18N
@@ -64,22 +73,18 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel5.add(btnRegistrarCliente);
-        btnRegistrarCliente.setBounds(0, 420, 310, 37);
+        btnRegistrarCliente.setBounds(0, 420, 240, 37);
 
-        btnReporte.setBackground(new java.awt.Color(102, 153, 255));
-        btnReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Reporte.png"))); // NOI18N
-        btnReporte.setText("Reporte ");
-        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+        btnReporteIngresos.setBackground(new java.awt.Color(102, 153, 255));
+        btnReporteIngresos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Reporte.png"))); // NOI18N
+        btnReporteIngresos.setText("Reporte de Ingresos");
+        btnReporteIngresos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReporteActionPerformed(evt);
+                btnReporteIngresosActionPerformed(evt);
             }
         });
-        jPanel5.add(btnReporte);
-        btnReporte.setBounds(0, 480, 310, 37);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/images.jpg"))); // NOI18N
-        jPanel5.add(jLabel2);
-        jLabel2.setBounds(46, 14, 258, 189);
+        jPanel5.add(btnReporteIngresos);
+        btnReporteIngresos.setBounds(0, 480, 240, 37);
 
         btnSalir.setBackground(new java.awt.Color(102, 153, 255));
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Salir.png"))); // NOI18N
@@ -90,34 +95,68 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel5.add(btnSalir);
-        btnSalir.setBounds(0, 540, 310, 37);
+        btnSalir.setBounds(0, 540, 90, 37);
 
-        btnAsignacion.setBackground(new java.awt.Color(102, 153, 255));
-        btnAsignacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Asignación.png"))); // NOI18N
-        btnAsignacion.setText("Asignación");
-        btnAsignacion.addActionListener(new java.awt.event.ActionListener() {
+        btnAsignarVehiculo.setBackground(new java.awt.Color(102, 153, 255));
+        btnAsignarVehiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Asignación.png"))); // NOI18N
+        btnAsignarVehiculo.setText("Asignar Vehículo");
+        btnAsignarVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAsignacionActionPerformed(evt);
+                btnAsignarVehiculoActionPerformed(evt);
             }
         });
-        jPanel5.add(btnAsignacion);
-        btnAsignacion.setBounds(0, 310, 310, 37);
+        jPanel5.add(btnAsignarVehiculo);
+        btnAsignarVehiculo.setBounds(0, 310, 240, 37);
 
-        btnCalculoTarifa.setBackground(new java.awt.Color(102, 153, 255));
-        btnCalculoTarifa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CalculoDeTarifas.png"))); // NOI18N
-        btnCalculoTarifa.setText("Cálculo de Tarifas");
-        btnCalculoTarifa.addActionListener(new java.awt.event.ActionListener() {
+        btnCalcularTarifas.setBackground(new java.awt.Color(102, 153, 255));
+        btnCalcularTarifas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CalculoDeTarifas.png"))); // NOI18N
+        btnCalcularTarifas.setText("Cálculo de Tarifas");
+        btnCalcularTarifas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCalculoTarifaActionPerformed(evt);
+                btnCalcularTarifasActionPerformed(evt);
             }
         });
-        jPanel5.add(btnCalculoTarifa);
-        btnCalculoTarifa.setBounds(0, 365, 310, 37);
+        jPanel5.add(btnCalcularTarifas);
+        btnCalcularTarifas.setBounds(0, 365, 240, 37);
 
         getContentPane().add(jPanel5);
-        jPanel5.setBounds(6, -4, 310, 690);
+        jPanel5.setBounds(6, -4, 250, 690);
 
-        setSize(new java.awt.Dimension(331, 608));
+        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setLayout(null);
+
+        btnListaClientes.setBackground(new java.awt.Color(51, 51, 255));
+        btnListaClientes.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnListaClientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnListaClientes.setText("Listado de Clientes");
+        jPanel2.add(btnListaClientes);
+        btnListaClientes.setBounds(30, 250, 190, 30);
+
+        btnListaVehiculos.setBackground(new java.awt.Color(51, 51, 255));
+        btnListaVehiculos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnListaVehiculos.setForeground(new java.awt.Color(255, 255, 255));
+        btnListaVehiculos.setText("Listado de Vehículos");
+        jPanel2.add(btnListaVehiculos);
+        btnListaVehiculos.setBounds(30, 310, 190, 30);
+
+        btnListaAlquileres.setBackground(new java.awt.Color(51, 51, 255));
+        btnListaAlquileres.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnListaAlquileres.setForeground(new java.awt.Color(255, 255, 255));
+        btnListaAlquileres.setText("Listado de Alquileres");
+        jPanel2.add(btnListaAlquileres);
+        btnListaAlquileres.setBounds(30, 370, 190, 30);
+
+        btnConfiguracion.setBackground(new java.awt.Color(51, 51, 255));
+        btnConfiguracion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnConfiguracion.setForeground(new java.awt.Color(255, 255, 255));
+        btnConfiguracion.setText("Configuración");
+        jPanel2.add(btnConfiguracion);
+        btnConfiguracion.setBounds(30, 430, 170, 30);
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(250, 0, 250, 590);
+
+        setSize(new java.awt.Dimension(500, 608));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -148,27 +187,27 @@ public class frmPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void btnAsignacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignacionActionPerformed
+    private void btnAsignarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarVehiculoActionPerformed
         
-    }//GEN-LAST:event_btnAsignacionActionPerformed
+    }//GEN-LAST:event_btnAsignarVehiculoActionPerformed
 
-    private void btnRegistroAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroAlquilerActionPerformed
+    private void btnRegistrarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarVehiculoActionPerformed
        
         
-    }//GEN-LAST:event_btnRegistroAlquilerActionPerformed
+    }//GEN-LAST:event_btnRegistrarVehiculoActionPerformed
 
     private void btnRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClienteActionPerformed
         
         
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
-    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+    private void btnReporteIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteIngresosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnReporteActionPerformed
+    }//GEN-LAST:event_btnReporteIngresosActionPerformed
 
-    private void btnCalculoTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculoTarifaActionPerformed
+    private void btnCalcularTarifasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularTarifasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCalculoTarifaActionPerformed
+    }//GEN-LAST:event_btnCalcularTarifasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,13 +246,18 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAsignacion;
-    private javax.swing.JButton btnCalculoTarifa;
+    private javax.swing.JButton btnAsignarVehiculo;
+    private javax.swing.JButton btnCalcularTarifas;
+    private javax.swing.JButton btnConfiguracion;
+    private javax.swing.JButton btnListaAlquileres;
+    private javax.swing.JButton btnListaClientes;
+    private javax.swing.JButton btnListaVehiculos;
     private javax.swing.JButton btnRegistrarCliente;
-    private javax.swing.JButton btnRegistroAlquiler;
-    private javax.swing.JButton btnReporte;
+    private javax.swing.JButton btnRegistrarVehiculo;
+    private javax.swing.JButton btnReporteIngresos;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }
