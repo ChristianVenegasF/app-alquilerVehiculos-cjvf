@@ -12,6 +12,10 @@ public class Alquiler {
 
     // 🔹 Constructor vacío
     public Alquiler() {}
+    
+    public double getCostoTotal() {
+    return costo; // Asegúrate de que 'costo' existe en la clase
+}
 
     // 🔹 Constructor con parámetros
     public Alquiler(int id, int idCliente, int idVehiculo, Date fechaInicio, Date fechaFin, double costo) {

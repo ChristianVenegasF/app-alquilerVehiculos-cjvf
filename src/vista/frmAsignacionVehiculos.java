@@ -53,36 +53,76 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
         }
     }
 
-    private void asignarVehiculo() {
-    if (cbClientes.getSelectedItem() == null || cbVehiculos.getSelectedItem() == null) {
-        JOptionPane.showMessageDialog(this, "Seleccione un cliente y un vehículo.");
-        return;
-    }
+   private void asignarVehiculo() {
+    btnAsignar.setEnabled(false); // 🔹 Evita múltiples clics
 
-    int idCliente = Integer.parseInt(cbClientes.getSelectedItem().toString().split(" - ")[0]);
-    int idVehiculo = Integer.parseInt(cbVehiculos.getSelectedItem().toString().split(" - ")[0]);
-    
-    Date fechaInicio = dcFechaInicio.getDate();
-    Date fechaFin = dcFechaFin.getDate();
-    
-    if (fechaInicio == null || fechaFin == null) {
-        JOptionPane.showMessageDialog(this, "Seleccione fechas válidas.");
-        return;
-    }
-    if (fechaFin.before(fechaInicio)) {
-        JOptionPane.showMessageDialog(this, "La fecha de fin debe ser posterior a la fecha de inicio.");
-        return;
-    }
+    try {
+        if (cbClientes.getSelectedItem() == null || cbVehiculos.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Seleccione un cliente y un vehículo.");
+            return;
+        }
 
-    // 🔹 Eliminamos la parte de `txtCosto`
-    double costo = 0; // Si el costo no se usa, asignamos 0
+        int idCliente = Integer.parseInt(cbClientes.getSelectedItem().toString().split(" - ")[0]);
+        int idVehiculo = Integer.parseInt(cbVehiculos.getSelectedItem().toString().split(" - ")[0]);
 
-    Alquiler nuevoAlquiler = new Alquiler(0, idCliente, idVehiculo, fechaInicio, fechaFin, costo);
-    if (alquilerController.registrarAlquiler(nuevoAlquiler)) {
-        JOptionPane.showMessageDialog(this, "Vehículo asignado correctamente.");
-        //dispose();
-    } else {
-        JOptionPane.showMessageDialog(this, "Error al asignar el vehículo.");
+        Date fechaInicio = dcFechaInicio.getDate();
+        Date fechaFin = dcFechaFin.getDate();
+
+        if (fechaInicio == null || fechaFin == null) {
+            JOptionPane.showMessageDialog(this, "Seleccione fechas válidas.");
+            return;
+        }
+        if (fechaFin.before(fechaInicio)) {
+            JOptionPane.showMessageDialog(this, "La fecha de fin debe ser posterior a la fecha de inicio.");
+            return;
+        }
+
+        // ✅ Convertir `java.util.Date` a `java.sql.Date`
+        java.sql.Date sqlFechaInicio = new java.sql.Date(fechaInicio.getTime());
+        java.sql.Date sqlFechaFin = new java.sql.Date(fechaFin.getTime());
+
+        // ✅ Verificar si el vehículo ya está alquilado en esas fechas
+        if (alquilerController.existeAlquiler(idVehiculo, sqlFechaInicio, sqlFechaFin)) {
+            JOptionPane.showMessageDialog(this, "El vehículo ya está alquilado en este período.");
+            return;
+        }
+
+        // ✅ Calcular días de alquiler
+        long diffMilisegundos = fechaFin.getTime() - fechaInicio.getTime();
+        long diasAlquiler = (diffMilisegundos / (1000 * 60 * 60 * 24)) + 1;
+
+        // ✅ Obtener la tarifa diaria desde el campo de texto
+        double tarifaDiaria;
+        try {
+            tarifaDiaria = Double.parseDouble(txtMonto.getText());
+            if (tarifaDiaria <= 0) {
+                JOptionPane.showMessageDialog(this, "Ingrese una tarifa diaria válida mayor a 0.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese un valor numérico válido para la tarifa diaria.");
+            return;
+        }
+
+        // ✅ Calcular el monto total
+        double montoTotal = diasAlquiler * tarifaDiaria;
+
+        // 🔹 Asignar el monto a `txtMonto` SOLO UNA VEZ antes del registro
+        txtMonto.setText(String.format("%.2f", montoTotal));
+
+        // ✅ Registrar alquiler en la base de datos (SOLO UNA VEZ)
+        Alquiler nuevoAlquiler = new Alquiler(0, idCliente, idVehiculo, sqlFechaInicio, sqlFechaFin, montoTotal);
+        boolean registrado = alquilerController.registrarAlquiler(nuevoAlquiler);
+
+        if (registrado) {
+            JOptionPane.showMessageDialog(this, "Vehículo asignado correctamente.");
+            dispose(); // 🔹 Cierra la ventana después de asignar
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al asignar el vehículo.");
+        }
+
+    } finally {
+        btnAsignar.setEnabled(true); // 🔹 Habilitar el botón nuevamente
     }
 }
 
@@ -108,6 +148,8 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
         cbVehiculos = new javax.swing.JComboBox<>();
         cbClientes = new javax.swing.JComboBox<>();
         Cerrar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtMonto = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,9 +168,9 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
 
         jLabel3.setText("Fecha Inicio:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(20, 140, 80, 30);
+        jLabel3.setBounds(10, 180, 80, 30);
         jPanel1.add(dcFechaInicio);
-        dcFechaInicio.setBounds(100, 140, 150, 22);
+        dcFechaInicio.setBounds(90, 180, 150, 22);
 
         jLabel5.setText("Vehículo:");
         jPanel1.add(jLabel5);
@@ -136,7 +178,7 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
 
         jLabel6.setText("Fecha Fin:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(20, 170, 70, 30);
+        jLabel6.setBounds(10, 210, 70, 30);
 
         btnAsignar.setText("ASIGNAR VEHÍCULO");
         btnAsignar.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +187,7 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAsignar);
-        btnAsignar.setBounds(20, 210, 160, 30);
+        btnAsignar.setBounds(20, 250, 160, 30);
 
         btnCancelar.setText("CANCELAR");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -154,9 +196,9 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnCancelar);
-        btnCancelar.setBounds(220, 210, 100, 30);
+        btnCancelar.setBounds(210, 250, 100, 30);
         jPanel1.add(dcFechaFin);
-        dcFechaFin.setBounds(80, 180, 170, 22);
+        dcFechaFin.setBounds(80, 210, 170, 22);
 
         jPanel1.add(cbVehiculos);
         cbVehiculos.setBounds(80, 110, 140, 22);
@@ -173,6 +215,12 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
         jPanel1.add(Cerrar);
         Cerrar.setBounds(370, 0, 30, 20);
 
+        jLabel4.setText("Monto:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(20, 150, 60, 20);
+        jPanel1.add(txtMonto);
+        txtMonto.setBounds(80, 150, 64, 22);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,8 +234,8 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(428, 325));
@@ -258,8 +306,10 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtMonto;
     // End of variables declaration//GEN-END:variables
 }
