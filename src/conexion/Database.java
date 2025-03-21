@@ -1,47 +1,20 @@
+package conexion;
 
-/*package conexion;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class Database {
-    
-  */  
+    private static final String URL = "jdbc:mysql://localhost:3306/alquiler_vehiculos";
+    private static final String USER = "root";  // Cambia según tu configuración
+    private static final String PASSWORD = "";  // Si tienes contraseña, agrégala
 
-
-/*public class ConexionSQLServer {
-
-    // URL de la base de datos
-    private static final String DB_URL = "jdbc:sqlserver://localhost:1433;databaseName=TuNombreBaseDatos;encrypt=true;trustServerCertificate=true;";
-
-    // Credenciales de la base de datos
-    private static final String USER = "tu_usuario";
-    private static final String PASSWORD = "tu_contrasena";
-
-    public static void main(String[] args) {
-        Connection conexion = null;
-        
+    public static Connection getConnection() {
         try {
-            // Registrar el driver de SQL Server
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-
-            // Conectar a la base de datos
-            conexion = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            System.out.println("Conexión exitosa a la base de datos SQL Server.");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Error: No se encontró el driver de SQL Server.");
-            e.printStackTrace();
+            return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {
-            System.out.println("Error en la conexión a la base de datos.");
             e.printStackTrace();
-        } finally {
-            try {
-                if (conexion != null && !conexion.isClosed()) {
-                    conexion.close();
-                    System.out.println("Conexión cerrada.");
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            return null;
         }
     }
 }
-
-}
-*/

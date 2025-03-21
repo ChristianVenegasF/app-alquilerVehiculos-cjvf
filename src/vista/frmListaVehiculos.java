@@ -36,6 +36,7 @@ public class frmListaVehiculos extends javax.swing.JFrame {
         tablaVehiculos = new javax.swing.JTable();
         btnEditarVehiculo = new javax.swing.JButton();
         btnEliminarVehiculo = new javax.swing.JButton();
+        Cerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -86,11 +87,25 @@ public class frmListaVehiculos extends javax.swing.JFrame {
         jPanel1.add(btnEliminarVehiculo);
         btnEliminarVehiculo.setBounds(185, 348, 142, 23);
 
+        Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/X.png"))); // NOI18N
+        Cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Cerrar);
+        Cerrar.setBounds(370, 0, 30, 20);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 410);
 
-        pack();
+        setSize(new java.awt.Dimension(416, 446));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_CerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,6 +143,7 @@ public class frmListaVehiculos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cerrar;
     private javax.swing.JButton btnBuscarVehiculo;
     private javax.swing.JButton btnEditarVehiculo;
     private javax.swing.JButton btnEliminarVehiculo;

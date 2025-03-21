@@ -4,6 +4,7 @@
  */
 package vista;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,12 +12,29 @@ import javax.swing.JOptionPane;
  * @author IDAT
  */
 public class frmPrincipal extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Principal
-     */
+    private JFrame ventanaActual = null; // 🔹 Guarda la ventana que está abierta
+    
     public frmPrincipal() {
         initComponents();
+        btnRegistrarCliente.addActionListener(e -> abrirVentana(new frmRegistrarClientes()));
+        btnRegistrarVehiculo.addActionListener(e -> abrirVentana(new frmRegistroVehiculos()));
+        btnAsignarVehiculo.addActionListener(e -> abrirVentana(new frmAsignacionVehiculos()));
+        btnCalcularTarifas.addActionListener(e -> abrirVentana(new frmCalculoTarifas()));
+        btnReporteIngresos.addActionListener(e -> abrirVentana(new frmReporteIngresos()));
+        btnListaClientes.addActionListener(e -> abrirVentana(new frmListaClientes()));
+        btnListaVehiculos.addActionListener(e -> abrirVentana(new frmListaVehiculos()));
+        btnListaAlquileres.addActionListener(e -> abrirVentana(new frmListaAlquileres()));
+        btnConfiguracion.addActionListener(e -> abrirVentana(new frmConfiguracion()));
+
+        setVisible(true);
+    }
+    // 🔹 Método para manejar la apertura de ventanas
+    private void abrirVentana(JFrame nuevaVentana) {
+        if (ventanaActual != null) {
+            ventanaActual.dispose(); // 🔹 Cierra la ventana anterior si existe
+        }
+        ventanaActual = nuevaVentana; // 🔹 Guarda la nueva ventana abierta
+        ventanaActual.setVisible(true);
     }
 
     /**

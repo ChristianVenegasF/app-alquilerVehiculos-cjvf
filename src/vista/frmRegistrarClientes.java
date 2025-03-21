@@ -1,19 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package vista;
 
-/**
- *
- * @author USUARIO
- */
-public class frmRegistrarClientes extends javax.swing.JFrame {
+import controlador.ClienteController;
+import javax.swing.JOptionPane;
+import modelo.Cliente;
 
-    /**
-     * Creates new form frmRegistrarClientes
-     */
+
+public class frmRegistrarClientes extends javax.swing.JFrame {
+     private ClienteController clienteController;
+ 
+       
     public frmRegistrarClientes() {
+       clienteController = new ClienteController();
         initComponents();
     }
 
@@ -38,6 +36,7 @@ public class frmRegistrarClientes extends javax.swing.JFrame {
         txtDireccion = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        Cerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -82,6 +81,11 @@ public class frmRegistrarClientes extends javax.swing.JFrame {
         txtDireccion.setBounds(140, 180, 230, 30);
 
         btnRegistrar.setText("REGISTRAR CLIENTE");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnRegistrar);
         btnRegistrar.setBounds(60, 240, 150, 30);
 
@@ -89,16 +93,49 @@ public class frmRegistrarClientes extends javax.swing.JFrame {
         jPanel1.add(btnCancelar);
         btnCancelar.setBounds(240, 240, 90, 30);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 480, 360);
+        Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/X.png"))); // NOI18N
+        Cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Cerrar);
+        Cerrar.setBounds(450, 0, 30, 20);
 
-        setSize(new java.awt.Dimension(530, 382));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 10, 480, 360);
+
+        setSize(new java.awt.Dimension(501, 382));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        String nombre = txtNombre.getText().trim();
+        String documento = txtDocumento.getText().trim();
+        String telefono = txtTelefono.getText().trim();
+        String direccion = txtDireccion.getText().trim();
+
+        if (nombre.isEmpty() || documento.isEmpty() || telefono.isEmpty() || direccion.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
+            return;
+        }
+
+        Cliente nuevoCliente = new Cliente(0, nombre, documento, telefono, direccion);
+        if (clienteController.registrarCliente(nuevoCliente)) {
+            JOptionPane.showMessageDialog(this, "Cliente registrado correctamente.");
+            dispose(); // 🔹 Cierra la ventana después del registro
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al registrar el cliente.");
+        }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_CerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,6 +173,7 @@ public class frmRegistrarClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cerrar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;

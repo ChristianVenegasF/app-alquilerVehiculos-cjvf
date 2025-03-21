@@ -4,18 +4,87 @@
  */
 package vista;
 
+import controlador.AlquilerController;
+import controlador.ClienteController;
+import controlador.VehiculoController;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
+import modelo.Alquiler;
+import modelo.Cliente;
+import modelo.Vehiculo;
+
 /**
  *
  * @author USUARIO
  */
 public class frmAsignacionVehiculos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmAsignacionVehiculo
-     */
+    private ClienteController clienteController;
+    private VehiculoController vehiculoController;
+    private AlquilerController alquilerController;
     public frmAsignacionVehiculos() {
+        clienteController = new ClienteController();
+        vehiculoController = new VehiculoController();
+        alquilerController = new AlquilerController();
         initComponents();
+        cargarClientes();
+        cargarVehiculos();
+        
+        // 🔹 Agregar acción al botón "Asignar Vehículo"
+        btnAsignar.addActionListener(evt -> asignarVehiculo());
+
+        // 🔹 Agregar acción al botón "Cancelar"
+        btnCancelar.addActionListener(evt -> dispose());
     }
+    private void cargarClientes() {
+        List<Cliente> clientes = clienteController.obtenerClientes();
+        for (Cliente cliente : clientes) {
+            cbClientes.addItem(cliente.getId() + " - " + cliente.getNombre());
+        }
+    }
+
+    private void cargarVehiculos() {
+        List<Vehiculo> vehiculos = vehiculoController.obtenerVehiculos();
+        for (Vehiculo vehiculo : vehiculos) {
+            if (vehiculo.isDisponible()) {
+                cbVehiculos.addItem(vehiculo.getId() + " - " + vehiculo.getMarca() + " " + vehiculo.getModelo());
+            }
+        }
+    }
+
+    private void asignarVehiculo() {
+    if (cbClientes.getSelectedItem() == null || cbVehiculos.getSelectedItem() == null) {
+        JOptionPane.showMessageDialog(this, "Seleccione un cliente y un vehículo.");
+        return;
+    }
+
+    int idCliente = Integer.parseInt(cbClientes.getSelectedItem().toString().split(" - ")[0]);
+    int idVehiculo = Integer.parseInt(cbVehiculos.getSelectedItem().toString().split(" - ")[0]);
+    
+    Date fechaInicio = dcFechaInicio.getDate();
+    Date fechaFin = dcFechaFin.getDate();
+    
+    if (fechaInicio == null || fechaFin == null) {
+        JOptionPane.showMessageDialog(this, "Seleccione fechas válidas.");
+        return;
+    }
+    if (fechaFin.before(fechaInicio)) {
+        JOptionPane.showMessageDialog(this, "La fecha de fin debe ser posterior a la fecha de inicio.");
+        return;
+    }
+
+    // 🔹 Eliminamos la parte de `txtCosto`
+    double costo = 0; // Si el costo no se usa, asignamos 0
+
+    Alquiler nuevoAlquiler = new Alquiler(0, idCliente, idVehiculo, fechaInicio, fechaFin, costo);
+    if (alquilerController.registrarAlquiler(nuevoAlquiler)) {
+        JOptionPane.showMessageDialog(this, "Vehículo asignado correctamente.");
+        //dispose();
+    } else {
+        JOptionPane.showMessageDialog(this, "Error al asignar el vehículo.");
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,10 +103,11 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnAsignar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         dcFechaFin = new com.toedter.calendar.JDateChooser();
         cbVehiculos = new javax.swing.JComboBox<>();
         cbClientes = new javax.swing.JComboBox<>();
+        Cerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,7 +128,7 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(20, 140, 80, 30);
         jPanel1.add(dcFechaInicio);
-        dcFechaInicio.setBounds(100, 140, 85, 22);
+        dcFechaInicio.setBounds(100, 140, 150, 22);
 
         jLabel5.setText("Vehículo:");
         jPanel1.add(jLabel5);
@@ -69,47 +139,77 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
         jLabel6.setBounds(20, 170, 70, 30);
 
         btnAsignar.setText("ASIGNAR VEHÍCULO");
+        btnAsignar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsignarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAsignar);
         btnAsignar.setBounds(20, 210, 160, 30);
 
-        jButton2.setText("CANCELAR");
-        jPanel1.add(jButton2);
-        jButton2.setBounds(220, 210, 100, 30);
+        btnCancelar.setText("CANCELAR");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCancelar);
+        btnCancelar.setBounds(220, 210, 100, 30);
         jPanel1.add(dcFechaFin);
-        dcFechaFin.setBounds(80, 180, 85, 22);
+        dcFechaFin.setBounds(80, 180, 170, 22);
 
-        cbVehiculos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(cbVehiculos);
         cbVehiculos.setBounds(80, 110, 140, 22);
 
-        cbClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(cbClientes);
         cbClientes.setBounds(80, 80, 140, 22);
+
+        Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/X.png"))); // NOI18N
+        Cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Cerrar);
+        Cerrar.setBounds(370, 0, 30, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 412, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 317, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(41, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(428, 325));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_CerrarActionPerformed
+
+    private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
+        asignarVehiculo(); // 🔹 Llama al método que realiza la asignación
+    }//GEN-LAST:event_btnAsignarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+    
+    dcFechaInicio.setDate(null);
+    dcFechaFin.setDate(null);
+    cbClientes.setSelectedIndex(-1);
+    cbVehiculos.setSelectedIndex(-1);
+    this.dispose(); // 🔹 Cierra la ventana después de limpiar los campos
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,12 +248,13 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cerrar;
     private javax.swing.JButton btnAsignar;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JComboBox<String> cbClientes;
     private javax.swing.JComboBox<String> cbVehiculos;
     private com.toedter.calendar.JDateChooser dcFechaFin;
     private com.toedter.calendar.JDateChooser dcFechaInicio;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

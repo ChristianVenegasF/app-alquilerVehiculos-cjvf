@@ -4,17 +4,42 @@
  */
 package vista;
 
+import controlador.VehiculoController;
+import javax.swing.JOptionPane;
+import modelo.Vehiculo;
+
 /**
  *
  * @author USUARIO
  */
 public class frmRegistroVehiculos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmRegistroAlquiler
-     */
+    private VehiculoController vehiculoController;
     public frmRegistroVehiculos() {
+        vehiculoController = new VehiculoController();
         initComponents();
+    }
+    
+    
+    
+    private void registrarVehiculo() {
+        String marca = txtMarca.getText().trim();
+        String modelo = txtModelo.getText().trim();
+        String placa = txtPlaca.getText().trim();
+        boolean disponible = chkDisponible.isSelected();
+
+        if (marca.isEmpty() || modelo.isEmpty() || placa.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
+            return;
+        }
+
+        Vehiculo nuevoVehiculo = new Vehiculo(0, marca, modelo, placa, disponible);
+        if (vehiculoController.registrarVehiculo(nuevoVehiculo)) {
+            JOptionPane.showMessageDialog(this, "Vehículo registrado correctamente.");
+            dispose(); // 🔹 Cierra la ventana después del registro
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al registrar el vehículo.");
+        }
     }
 
     /**
@@ -38,6 +63,7 @@ public class frmRegistroVehiculos extends javax.swing.JFrame {
         txtMarca = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
         txtPlaca = new javax.swing.JTextField();
+        Cerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -67,6 +93,11 @@ public class frmRegistroVehiculos extends javax.swing.JFrame {
         jLabel5.setBounds(20, 220, 80, 40);
 
         btnRegistrar.setText("REGISTRAR VEHÍCULO");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnRegistrar);
         btnRegistrar.setBounds(20, 280, 150, 30);
 
@@ -82,12 +113,29 @@ public class frmRegistroVehiculos extends javax.swing.JFrame {
         jPanel2.add(txtPlaca);
         txtPlaca.setBounds(90, 180, 120, 22);
 
+        Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/X.png"))); // NOI18N
+        Cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Cerrar);
+        Cerrar.setBounds(350, 0, 30, 20);
+
         getContentPane().add(jPanel2);
         jPanel2.setBounds(10, 20, 380, 330);
 
         setSize(new java.awt.Dimension(433, 379));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
+      this.dispose();
+    }//GEN-LAST:event_CerrarActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+       registrarVehiculo(); // 🔹 Llamamos al método que guarda el vehículo
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,6 +174,7 @@ public class frmRegistroVehiculos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cerrar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JCheckBox chkDisponible;
