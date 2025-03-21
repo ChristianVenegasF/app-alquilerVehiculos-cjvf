@@ -7,6 +7,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VehiculoController {
+    
+    // 🔹 Método para obtener solo los vehículos disponibles
+    public List<Vehiculo> obtenerVehiculosDisponibles() {
+        List<Vehiculo> vehiculos = new ArrayList<>();
+        String sql = "SELECT * FROM vehiculos WHERE disponible = true"; // Filtrar solo los disponibles
+
+        try (Connection conn = Database.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            System.out.println("✅ Consulta ejecutada: " + sql);
+
+            while (rs.next()) {
+                Vehiculo vehiculo = new Vehiculo(
+                    rs.getInt("id"),
+                    rs.getString("marca"),
+                    rs.getString("modelo"),
+                    rs.getString("placa"),
+                    rs.getBoolean("disponible")
+                );
+                vehiculos.add(vehiculo);
+                System.out.println("📌 Vehículo disponible encontrado: " + vehiculo.getModelo());
+            }
+
+        } catch (SQLException e) {
+            System.out.println("❌ Error en obtenerVehiculosDisponibles: " + e.getMessage());
+        }
+
+        System.out.println("🔹 Total vehículos disponibles: " + vehiculos.size());
+        return vehiculos;
+    }
 
     // 🔹 Método para registrar un vehículo en MySQL
     public boolean registrarVehiculo(Vehiculo vehiculo) {
