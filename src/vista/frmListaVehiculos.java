@@ -26,18 +26,68 @@ public class frmListaVehiculos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtBuscarVehiculo = new javax.swing.JTextField();
+        btnBuscarVehiculo = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaVehiculos = new javax.swing.JTable();
+        btnEditarVehiculo = new javax.swing.JButton();
+        btnEliminarVehiculo = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setLayout(null);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Auto.png"))); // NOI18N
+        jLabel1.setText("LISTADO DE VEHÍCULOS");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(90, 40, 162, 30);
+
+        jLabel2.setText("Buscar Vehículo:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(27, 83, 87, 16);
+        jPanel1.add(txtBuscarVehiculo);
+        txtBuscarVehiculo.setBounds(126, 80, 128, 22);
+
+        btnBuscarVehiculo.setText("BUSCAR");
+        jPanel1.add(btnBuscarVehiculo);
+        btnBuscarVehiculo.setBounds(260, 80, 74, 23);
+
+        jLabel3.setText("Tabla de vehículos:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(27, 121, 100, 16);
+
+        tablaVehiculos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Marca", "Modelo", "Placa", "Estado"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaVehiculos);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 155, 375, 165);
+
+        btnEditarVehiculo.setText("EDITAR VEHÍCULO");
+        jPanel1.add(btnEditarVehiculo);
+        btnEditarVehiculo.setBounds(14, 348, 127, 23);
+
+        btnEliminarVehiculo.setText("ELIMINAR VEHÍCULO");
+        jPanel1.add(btnEliminarVehiculo);
+        btnEliminarVehiculo.setBounds(185, 348, 142, 23);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 400, 410);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +128,15 @@ public class frmListaVehiculos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarVehiculo;
+    private javax.swing.JButton btnEditarVehiculo;
+    private javax.swing.JButton btnEliminarVehiculo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaVehiculos;
+    private javax.swing.JTextField txtBuscarVehiculo;
     // End of variables declaration//GEN-END:variables
 }
