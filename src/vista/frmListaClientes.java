@@ -4,17 +4,109 @@
  */
 package vista;
 
+import controlador.ClienteController;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelo.Cliente;
+
 /**
  *
  * @author USUARIO
  */
 public class frmListaClientes extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmListaClientes
-     */
+    private ClienteController clienteController;
+    private DefaultTableModel modeloTabla;
+    
     public frmListaClientes() {
+        clienteController = new ClienteController();
         initComponents();
+        modeloTabla = (DefaultTableModel) tablaClientes.getModel();  
+        cargarClientes();
+    }
+    
+    private void cargarClientes() {
+    DefaultTableModel modeloTabla = (DefaultTableModel) tablaClientes.getModel();
+    modeloTabla.setRowCount(0); // Limpiar la tabla antes de agregar datos
+
+    List<Cliente> listaClientes = clienteController.obtenerClientes();
+    for (Cliente cliente : listaClientes) {
+        modeloTabla.addRow(new Object[]{
+            cliente.getId(),
+            cliente.getNombre(),
+            cliente.getDocumento(), // Asegurar que esta columna se incluya
+            cliente.getTelefono(),
+            cliente.getDireccion()
+        });
+    }
+}
+    
+    private void agregarCliente() {
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del cliente:");
+        String documento = JOptionPane.showInputDialog("Ingrese el documento:");
+        String telefono = JOptionPane.showInputDialog("Ingrese el teléfono:");
+        String direccion = JOptionPane.showInputDialog("Ingrese la dirección:");
+
+        if (nombre != null && documento != null && telefono != null && direccion != null) {
+            Cliente nuevoCliente = new Cliente(0, nombre, documento, telefono, direccion);
+            if (clienteController.registrarCliente(nuevoCliente)) {
+                JOptionPane.showMessageDialog(this, "Cliente registrado con éxito.");
+                cargarClientes();
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al registrar el cliente.");
+            }
+        }
+    }
+
+    private void editarCliente() {
+        int filaSeleccionada = tablaClientes.getSelectedRow();
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this, "Seleccione un cliente para editar.");
+            return;
+        }
+
+        // ✅ Prevención de errores: Verificar que la tabla tenga suficientes columnas
+        if (modeloTabla.getColumnCount() < 5) {
+            JOptionPane.showMessageDialog(this, "Error: La tabla no tiene suficientes columnas.");
+            return;
+        }
+
+        int id = (int) modeloTabla.getValueAt(filaSeleccionada, 0);
+        String nombre = JOptionPane.showInputDialog("Nuevo nombre:", modeloTabla.getValueAt(filaSeleccionada, 1));
+        String documento = JOptionPane.showInputDialog("Nuevo documento:", modeloTabla.getValueAt(filaSeleccionada, 2));
+        String telefono = JOptionPane.showInputDialog("Nuevo teléfono:", modeloTabla.getValueAt(filaSeleccionada, 3));
+        String direccion = JOptionPane.showInputDialog("Nueva dirección:", modeloTabla.getValueAt(filaSeleccionada, 4));
+
+        if (nombre != null && documento != null && telefono != null && direccion != null) {
+            Cliente clienteEditado = new Cliente(id, nombre, documento, telefono, direccion);
+            if (clienteController.actualizarCliente(clienteEditado)) {
+                JOptionPane.showMessageDialog(this, "Cliente actualizado con éxito.");
+                cargarClientes();
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al actualizar el cliente.");
+            }
+        }
+    }
+
+    private void eliminarCliente() {
+        int filaSeleccionada = tablaClientes.getSelectedRow();
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this, "Seleccione un cliente para eliminar.");
+            return;
+        }
+
+        int id = (int) modeloTabla.getValueAt(filaSeleccionada, 0);
+        int confirmacion = JOptionPane.showConfirmDialog(this, "¿Está seguro de eliminar este cliente?", "Confirmar", JOptionPane.YES_NO_OPTION);
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            if (clienteController.eliminarCliente(id)) {
+                JOptionPane.showMessageDialog(this, "Cliente eliminado con éxito.");
+                cargarClientes();
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al eliminar el cliente.");
+            }
+        }
     }
 
     /**
@@ -51,13 +143,18 @@ public class frmListaClientes extends javax.swing.JFrame {
 
         jLabel2.setText("Buscar Cliente:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 88, 78, 16);
+        jLabel2.setBounds(10, 90, 100, 30);
         jPanel1.add(txtBuscar);
-        txtBuscar.setBounds(120, 85, 143, 22);
+        txtBuscar.setBounds(100, 90, 143, 22);
 
         btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnBuscar);
-        btnBuscar.setBounds(281, 85, 74, 23);
+        btnBuscar.setBounds(281, 85, 100, 30);
 
         jLabel3.setText("Tabla de clientes:");
         jPanel1.add(jLabel3);
@@ -68,21 +165,31 @@ public class frmListaClientes extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nombre", "Teléfono", "Dirección"
+                "ID", "Nombre", "Documento", "Teléfono", "Dirección"
             }
         ));
         jScrollPane1.setViewportView(tablaClientes);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(6, 157, 401, 194);
+        jScrollPane1.setBounds(6, 157, 530, 194);
 
         btnEditarCliente.setText("EDITAR CLIENTE");
+        btnEditarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarClienteActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEditarCliente);
-        btnEditarCliente.setBounds(6, 389, 115, 23);
+        btnEditarCliente.setBounds(6, 389, 140, 30);
 
         btnEliminarCliente.setText("ELIMINAR CLIENTE");
+        btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarClienteActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEliminarCliente);
-        btnEliminarCliente.setBounds(186, 389, 130, 23);
+        btnEliminarCliente.setBounds(186, 389, 150, 30);
 
         Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/X.png"))); // NOI18N
         Cerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,18 +198,92 @@ public class frmListaClientes extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Cerrar);
-        Cerrar.setBounds(380, 0, 30, 20);
+        Cerrar.setBounds(510, 0, 30, 20);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(19, 16, 410, 480);
+        jPanel1.setBounds(19, 16, 540, 480);
 
-        setSize(new java.awt.Dimension(455, 552));
+        setSize(new java.awt.Dimension(586, 552));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
         this.dispose();
     }//GEN-LAST:event_CerrarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+       String filtro = txtBuscar.getText().trim(); // Obtener el texto del campo de búsqueda
+
+    if (filtro.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Ingrese un nombre o documento para buscar.");
+        return;
+    }
+
+    List<Cliente> clientesFiltrados = clienteController.buscarClientes(filtro);
+
+    modeloTabla.setRowCount(0); // Limpiar la tabla
+
+    for (Cliente cliente : clientesFiltrados) {
+        Object[] fila = {
+            cliente.getId(),
+            cliente.getNombre(),
+            cliente.getDocumento(),
+            cliente.getTelefono(),
+            cliente.getDireccion()
+        };
+        modeloTabla.addRow(fila);
+    }
+
+    if (clientesFiltrados.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "No se encontraron clientes con ese criterio.");
+    }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClienteActionPerformed
+       int filaSeleccionada = tablaClientes.getSelectedRow();
+    
+    if (filaSeleccionada == -1) {
+        JOptionPane.showMessageDialog(this, "Seleccione un cliente para editar.");
+        return;
+    }
+
+    // Obtener datos de la fila seleccionada
+    int id = Integer.parseInt(tablaClientes.getValueAt(filaSeleccionada, 0).toString());
+    String nombre = tablaClientes.getValueAt(filaSeleccionada, 1).toString();
+    String documento = tablaClientes.getValueAt(filaSeleccionada, 2).toString();
+    String telefono = tablaClientes.getValueAt(filaSeleccionada, 3).toString();
+    String direccion = tablaClientes.getValueAt(filaSeleccionada, 4).toString();
+
+    // Abrir frmEditarCliente y pasar los datos
+    frmEditarCliente editarClienteForm = new frmEditarCliente(this, id, nombre, documento, telefono, direccion);
+    editarClienteForm.setVisible(true);
+    }//GEN-LAST:event_btnEditarClienteActionPerformed
+
+    private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
+       int filaSeleccionada = tablaClientes.getSelectedRow();
+    
+    if (filaSeleccionada == -1) {
+        JOptionPane.showMessageDialog(this, "Seleccione un cliente para eliminar.");
+        return;
+    }
+
+    // Obtener el ID del cliente seleccionado
+    int idCliente = Integer.parseInt(tablaClientes.getValueAt(filaSeleccionada, 0).toString());
+
+    // Confirmación antes de eliminar
+    int confirmacion = JOptionPane.showConfirmDialog(this, "¿Estás seguro de eliminar este cliente?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+    
+    if (confirmacion == JOptionPane.YES_OPTION) {
+        // Llamar al controlador para eliminar
+        ClienteController clienteController = new ClienteController();
+        if (clienteController.eliminarCliente(idCliente)) {
+            JOptionPane.showMessageDialog(this, "Cliente eliminado correctamente.");
+            cargarClientes(); // Refrescar la tabla después de eliminar
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al eliminar el cliente.");
+        }
+    }
+    }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,15 +4,33 @@
  */
 package vista;
 
+import controlador.ClienteController;
+import javax.swing.JOptionPane;
+import modelo.Cliente;
+
 /**
  *
  * @author USUARIO
  */
 public class frmEditarCliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmEditarCliente
-     */
+    private ClienteController clienteController;
+    private frmListaClientes listaClientesForm;
+    private int idCliente;
+    
+    
+    public frmEditarCliente(frmListaClientes listaClientes, int id, String nombre, String documento, String telefono, String direccion) {
+        initComponents();
+        this.clienteController = new ClienteController();
+        this.listaClientesForm = listaClientes;
+        this.idCliente = id;
+
+        // Llenar los campos con los datos actuales del cliente
+        txtNombre.setText(nombre);
+        txtDocumento.setText(documento);
+        txtTelefono.setText(telefono);
+        txtDireccion.setText(direccion);
+    }
     public frmEditarCliente() {
         initComponents();
     }
@@ -57,8 +75,18 @@ public class frmEditarCliente extends javax.swing.JFrame {
         jLabel5.setText("Dirección:");
 
         btnGuardarCambios.setText("GUARDAR CAMBIOS");
+        btnGuardarCambios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarCambiosActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("CANCELAR");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/X.png"))); // NOI18N
         Cerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -80,11 +108,11 @@ public class frmEditarCliente extends javax.swing.JFrame {
                         .addComponent(btnCancelar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(37, 37, 37)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
@@ -92,10 +120,11 @@ public class frmEditarCliente extends javax.swing.JFrame {
                                     .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDocumento)
-                                    .addComponent(txtTelefono)
-                                    .addComponent(txtDireccion))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                                        .addComponent(txtDocumento, javax.swing.GroupLayout.Alignment.LEADING)))))))
+                .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(137, 137, 137)
                 .addComponent(jLabel1)
@@ -143,6 +172,36 @@ public class frmEditarCliente extends javax.swing.JFrame {
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
         this.dispose();
     }//GEN-LAST:event_CerrarActionPerformed
+
+    private void btnGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCambiosActionPerformed
+      String nombre = txtNombre.getText();
+        String documento = txtDocumento.getText();
+        String telefono = txtTelefono.getText();
+        String direccion = txtDireccion.getText();
+
+        if (nombre.isEmpty() || documento.isEmpty() || telefono.isEmpty() || direccion.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
+            return;
+        }
+
+        // Crear el objeto Cliente con los nuevos datos
+        Cliente clienteActualizado = new Cliente(idCliente, nombre, documento, telefono, direccion);
+
+        // Llamar al controlador para actualizar
+        if (clienteController.actualizarCliente(clienteActualizado)) {
+            JOptionPane.showMessageDialog(this, "Cliente actualizado correctamente.");
+           // listaClientesForm.cargarClientes(); // Refrescar lista en frmListaClientes
+            this.dispose(); // Cerrar la ventana
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al actualizar el cliente.");
+        }
+        
+    }//GEN-LAST:event_btnGuardarCambiosActionPerformed
+
+    
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+         this.dispose(); // Cerrar la ventana sin guardar cambios
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
