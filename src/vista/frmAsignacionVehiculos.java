@@ -151,7 +151,8 @@ public class frmAsignacionVehiculos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtMonto = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setLayout(null);

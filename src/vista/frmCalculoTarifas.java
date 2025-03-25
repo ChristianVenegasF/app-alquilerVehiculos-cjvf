@@ -109,7 +109,8 @@ private void cargarVehiculosDisponibles() {
         jLabel6 = new javax.swing.JLabel();
         txtTarifaDiaria = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));

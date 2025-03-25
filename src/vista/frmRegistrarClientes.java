@@ -38,7 +38,8 @@ public class frmRegistrarClientes extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         Cerrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));

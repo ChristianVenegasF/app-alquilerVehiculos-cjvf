@@ -9,7 +9,16 @@ public class Alquiler {
     private Date fechaInicio;
     private Date fechaFin;
     private double costo;
+    
+    private String nombreCliente;
 
+public String getNombreCliente() {
+    return nombreCliente;
+}
+
+public void setNombreCliente(String nombreCliente) {
+    this.nombreCliente = nombreCliente;
+}
     // 🔹 Constructor vacío
     public Alquiler() {}
     
@@ -43,6 +52,10 @@ public class Alquiler {
     public void setFechaFin(Date fechaFin) { this.fechaFin = fechaFin; }
     public void setCosto(double costo) { this.costo = costo; }
 
+     /*public String getNombreCliente() {
+        // Retorna un valor por defecto para evitar errores, ya que 'nombreCliente' no existe en la clase.
+        return "Nombre no disponible"; 
+    }*/
     // 🔹 Método toString() para mostrar información del alquiler
     @Override
     public String toString() {

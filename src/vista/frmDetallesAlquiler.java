@@ -13,8 +13,15 @@ public class frmDetallesAlquiler extends javax.swing.JFrame {
     /**
      * Creates new form frmDetallesAlquiler
      */
-    public frmDetallesAlquiler() {
+    public frmDetallesAlquiler( String cliente, String vehiculo, String fechaInicio, String fechaFin, double costoTotal) {
         initComponents();
+        // 🔹 Llenar los campos con los datos recibidos
+  
+        lblCliente.setText(cliente);
+        lblVehiculo.setText(vehiculo);
+        lblFechaInicio.setText(fechaInicio);
+        lblFechaFin.setText(fechaFin);
+        lblCostoTotal.setText(String.valueOf(costoTotal));
     }
 
     /**
@@ -41,7 +48,8 @@ public class frmDetallesAlquiler extends javax.swing.JFrame {
         lblCostoTotal = new javax.swing.JLabel();
         Cerrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
@@ -147,7 +155,8 @@ public class frmDetallesAlquiler extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(9, 16, 380, 290);
 
-        pack();
+        setSize(new java.awt.Dimension(414, 307));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
@@ -184,7 +193,7 @@ public class frmDetallesAlquiler extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmDetallesAlquiler().setVisible(true);
+               // new frmDetallesAlquiler().setVisible(true);
             }
         });
     }

@@ -65,7 +65,8 @@ public class frmRegistroVehiculos extends javax.swing.JFrame {
         txtPlaca = new javax.swing.JTextField();
         Cerrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
@@ -107,11 +108,11 @@ public class frmRegistroVehiculos extends javax.swing.JFrame {
         jPanel2.add(chkDisponible);
         chkDisponible.setBounds(100, 230, 100, 30);
         jPanel2.add(txtMarca);
-        txtMarca.setBounds(90, 80, 120, 22);
+        txtMarca.setBounds(90, 80, 120, 30);
         jPanel2.add(txtModelo);
-        txtModelo.setBounds(90, 130, 120, 22);
+        txtModelo.setBounds(90, 130, 120, 30);
         jPanel2.add(txtPlaca);
-        txtPlaca.setBounds(90, 180, 120, 22);
+        txtPlaca.setBounds(90, 180, 120, 30);
 
         Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/X.png"))); // NOI18N
         Cerrar.addActionListener(new java.awt.event.ActionListener() {

@@ -31,6 +31,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Alquiler Autos");
+        setResizable(false);
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 102));
@@ -40,7 +41,7 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("USUARIO");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(314, 69, 62, 20);
+        jLabel1.setBounds(314, 69, 65, 20);
 
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancelar.setText("CANCELAR");
@@ -55,7 +56,7 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("CONTRASEÑA");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(310, 141, 94, 20);
+        jLabel2.setBounds(310, 141, 98, 20);
 
         txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanel1.add(txtUsuario);
@@ -65,7 +66,7 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 51, 255));
         jLabel3.setText("Gestión de Alquiler de Vehículos");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(116, 20, 276, 25);
+        jLabel3.setBounds(116, 20, 278, 25);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/images.jpg"))); // NOI18N
         jPanel1.add(jLabel4);
@@ -81,11 +82,11 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnIngresar1);
-        btnIngresar1.setBounds(280, 230, 98, 27);
+        btnIngresar1.setBounds(280, 230, 102, 27);
 
         getContentPane().add(jPanel1);
 
-        setSize(new java.awt.Dimension(543, 321));
+        setSize(new java.awt.Dimension(543, 356));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

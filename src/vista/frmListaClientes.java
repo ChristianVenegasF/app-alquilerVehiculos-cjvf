@@ -130,7 +130,8 @@ public class frmListaClientes extends javax.swing.JFrame {
         btnEliminarCliente = new javax.swing.JButton();
         Cerrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
@@ -139,13 +140,13 @@ public class frmListaClientes extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Auto.png"))); // NOI18N
         jLabel1.setText("LISTADO DE CLIENTES ");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(134, 27, 153, 30);
+        jLabel1.setBounds(134, 27, 156, 30);
 
         jLabel2.setText("Buscar Cliente:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(10, 90, 100, 30);
         jPanel1.add(txtBuscar);
-        txtBuscar.setBounds(100, 90, 143, 22);
+        txtBuscar.setBounds(100, 90, 143, 30);
 
         btnBuscar.setText("BUSCAR");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +159,7 @@ public class frmListaClientes extends javax.swing.JFrame {
 
         jLabel3.setText("Tabla de clientes:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(17, 126, 90, 16);
+        jLabel3.setBounds(17, 126, 92, 16);
 
         tablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

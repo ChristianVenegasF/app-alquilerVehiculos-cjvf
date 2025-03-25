@@ -3,19 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
+import controlador.AlquilerController;
+import java.util.ArrayList;
+import java.util.List;
+import vista.frmListaAlquileres;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelo.Alquiler;
 
 /**
  *
  * @author IDAT
  */
 public class frmPrincipal extends javax.swing.JFrame {
-    private JFrame ventanaActual = null; // 🔹 Guarda la ventana que está abierta
     
+
+    private JFrame ventanaActual = null; // 🔹 Guarda la ventana que está abierta
+    private List<Alquiler> lista; // O el tipo de dato correspondiente
     public frmPrincipal() {
         initComponents();
+        lista = new ArrayList<>(); // Inicialización
         btnRegistrarCliente.addActionListener(e -> abrirVentana(new frmRegistrarClientes()));
         btnRegistrarVehiculo.addActionListener(e -> abrirVentana(new frmRegistroVehiculos()));
         btnAsignarVehiculo.addActionListener(e -> abrirVentana(new frmAsignacionVehiculos()));
@@ -23,11 +31,14 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnReporteIngresos.addActionListener(e -> abrirVentana(new frmReporteIngresos()));
         btnListaClientes.addActionListener(e -> abrirVentana(new frmListaClientes()));
         btnListaVehiculos.addActionListener(e -> abrirVentana(new frmListaVehiculos()));
-        btnListaAlquileres.addActionListener(e -> abrirVentana(new frmListaAlquileres()));
+       btnListaAlquileres.addActionListener(e -> abrirVentana(new frmListaAlquileres(lista)));
         btnConfiguracion.addActionListener(e -> abrirVentana(new frmConfiguracion()));
 
         setVisible(true);
-    }
+        
+    };
+    
+
     // 🔹 Método para manejar la apertura de ventanas
     private void abrirVentana(JFrame nuevaVentana) {
         if (ventanaActual != null) {
@@ -60,8 +71,9 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnListaAlquileres = new javax.swing.JButton();
         btnConfiguracion = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Ventana Principal");
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/images.jpg"))); // NOI18N
@@ -138,7 +150,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnCalcularTarifas.setBounds(0, 365, 240, 37);
 
         getContentPane().add(jPanel5);
-        jPanel5.setBounds(6, -4, 250, 690);
+        jPanel5.setBounds(6, -4, 250, 590);
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
         jPanel2.setLayout(null);
@@ -161,6 +173,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnListaAlquileres.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnListaAlquileres.setForeground(new java.awt.Color(255, 255, 255));
         btnListaAlquileres.setText("Listado de Alquileres");
+        btnListaAlquileres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListaAlquileresActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnListaAlquileres);
         btnListaAlquileres.setBounds(30, 370, 190, 30);
 
@@ -172,9 +189,9 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnConfiguracion.setBounds(30, 430, 170, 30);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(250, 0, 250, 590);
+        jPanel2.setBounds(250, 0, 250, 580);
 
-        setSize(new java.awt.Dimension(500, 608));
+        setSize(new java.awt.Dimension(500, 603));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -183,14 +200,14 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         // Mostrar el JOptionPane con las opciones Sí/No
         int respuesta = JOptionPane.showConfirmDialog(null, 
-            "¿Deseas abrir otra ventana?", "Confirmación", 
+            "¿Deseas Cerrar Sesion?", "Confirmación", 
             JOptionPane.YES_NO_OPTION);
         
         // Si el usuario selecciona "Sí" (YES_OPTION)
         if (respuesta == JOptionPane.YES_OPTION) {
             // Crear y mostrar otra ventana (puede ser un JOptionPane u otra ventana)
-            JOptionPane.showMessageDialog(null, "¡Se abrió otra ventana!", 
-                                          "Nueva Ventana", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "¡Se Cerro Sesion Satisfactoriamente!", 
+                                          "Ventana Login", JOptionPane.INFORMATION_MESSAGE);
             frmLogin Regresar = new frmLogin();
 
             // Mostrar la nueva ventana
@@ -226,6 +243,10 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void btnCalcularTarifasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularTarifasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCalcularTarifasActionPerformed
+
+    private void btnListaAlquileresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaAlquileresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnListaAlquileresActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,7 +6,40 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class AlquilerController {
+    
+    // 🔹 Método para obtener alquileres por ID de cliente
+    public List<Alquiler> obtenerAlquileresPorCliente(int idCliente) {
+        List<Alquiler> listaAlquileres = new ArrayList<>();
+        String sql = "SELECT * FROM alquileres WHERE id_cliente = ?";
+
+        try (Connection conn = Database.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, idCliente);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Alquiler alquiler = new Alquiler(
+                    rs.getInt("id"),
+                    rs.getInt("id_cliente"),
+                    rs.getInt("id_vehiculo"),
+                    rs.getDate("fecha_inicio"),
+                    rs.getDate("fecha_fin"),
+                    rs.getDouble("costo")
+                );
+                listaAlquileres.add(alquiler);
+            }
+
+            System.out.println("✅ Se encontraron " + listaAlquileres.size() + " alquileres para el cliente ID: " + idCliente);
+
+        } catch (SQLException e) {
+            System.err.println("⚠️ Error al obtener alquileres por cliente: " + e.getMessage());
+        }
+
+        return listaAlquileres;
+    }
     
     
     public boolean existeAlquiler(int idVehiculo, Date fechaInicio, Date fechaFin) {
@@ -87,33 +120,35 @@ public class AlquilerController {
     }
 }
 
-    // 🔹 Método para obtener todos los alquileres de la base de datos
     public List<Alquiler> obtenerAlquileres() {
-        List<Alquiler> alquileres = new ArrayList<>();
-        String sql = "SELECT * FROM alquileres";
+    List<Alquiler> alquileres = new ArrayList<>();
+    String sql = "SELECT a.id, c.nombre AS nombre_cliente, a.id_cliente, a.id_vehiculo, a.fecha_inicio, a.fecha_fin, a.costo " +
+                 "FROM alquileres a " +
+                 "JOIN clientes c ON a.id_cliente = c.id"; // Unir con clientes para obtener el nombre
 
-        try (Connection conn = Database.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+    try (Connection conn = Database.getConnection();
+         Statement stmt = conn.createStatement();
+         ResultSet rs = stmt.executeQuery(sql)) {
 
-            while (rs.next()) {
-                Alquiler alquiler = new Alquiler(
-                    rs.getInt("id"),
-                    rs.getInt("id_cliente"),
-                    rs.getInt("id_vehiculo"),
-                    rs.getDate("fecha_inicio"),
-                    rs.getDate("fecha_fin"),
-                    rs.getDouble("costo")
-                );
-                alquileres.add(alquiler);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        while (rs.next()) {
+            Alquiler alquiler = new Alquiler(
+                rs.getInt("id"),
+                rs.getInt("id_cliente"),
+                rs.getInt("id_vehiculo"),
+                rs.getDate("fecha_inicio"),
+                rs.getDate("fecha_fin"),
+                rs.getDouble("costo")
+            );
+            alquiler.setNombreCliente(rs.getString("nombre_cliente")); // Asignar el nombre del cliente
+            alquileres.add(alquiler);
         }
 
-        return alquileres;
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+
+    return alquileres;
+}
 
     // 🔹 Método para buscar alquileres por cliente o vehículo
     public List<Alquiler> buscarAlquileres(String filtro) {

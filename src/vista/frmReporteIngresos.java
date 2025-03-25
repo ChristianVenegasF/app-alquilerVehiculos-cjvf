@@ -51,7 +51,8 @@ public class frmReporteIngresos extends javax.swing.JFrame {
         tablaIngresos = new javax.swing.JTable();
         Cerrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
@@ -98,7 +99,7 @@ public class frmReporteIngresos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablaIngresos);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 250, 375, 220);
+        jScrollPane1.setBounds(10, 250, 452, 220);
 
         Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/X.png"))); // NOI18N
         Cerrar.addActionListener(new java.awt.event.ActionListener() {
